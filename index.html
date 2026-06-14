@@ -915,13 +915,24 @@ svg.leaflet-image-layer.leaflet-interactive path {
     transition:.3s;pointer-events:none}
   .totop.show{opacity:1;transform:none;pointer-events:auto}
   .totop:hover{background:var(--sea-deep);transform:translateY(-3px)}
-  .printbtn{position:fixed;bottom:1.6rem;right:5rem;height:46px;padding:0 1.1rem;border-radius:24px;
-    background:var(--coral);color:#fff;border:none;cursor:pointer;font-family:'Outfit';font-size:.88rem;font-weight:500;
-    z-index:60;box-shadow:0 4px 16px rgba(232,121,74,.4);opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none;
-    display:inline-flex;align-items:center;gap:.4rem}
-  .printbtn.show{opacity:1;transform:none;pointer-events:auto}
-  .printbtn:hover{background:#d56a3d;transform:translateY(-3px)}
-  @media (max-width:560px){.printbtn span.lbl{display:none}}
+  /* Karte: Vollbild-Steuerung (v.a. mobil) */
+  .map-card{position:relative}
+  .map-fab{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:500;
+    display:none;align-items:center;gap:.45rem;background:var(--sea-deep);color:#fff;border:none;cursor:pointer;
+    border-radius:26px;padding:.65rem 1.2rem;font-family:'Outfit';font-size:.88rem;font-weight:600;
+    box-shadow:0 4px 16px rgba(8,54,58,.4);-webkit-tap-highlight-color:transparent}
+  .map-fab:active{transform:translateX(-50%) scale(.96)}
+  .map-close{position:fixed;top:max(14px,env(safe-area-inset-top));right:14px;z-index:10000;
+    width:46px;height:46px;border-radius:50%;display:none;align-items:center;justify-content:center;
+    background:#fff;color:var(--sea-deep);border:none;font-size:1.35rem;cursor:pointer;
+    box-shadow:0 4px 16px rgba(0,0,0,.35);-webkit-tap-highlight-color:transparent}
+  #map.fs{position:fixed!important;inset:0;width:100vw!important;height:100dvh!important;
+    border-radius:0;border:none;box-shadow:none;z-index:9999}
+  body.map-open{overflow:hidden}
+  body.map-open .map-close{display:flex}
+  /* „Karte öffnen“-Button & Hinweis nur auf Touch-Geräten zeigen */
+  .touch-only{display:none}
+  @media (pointer:coarse){.map-fab{display:inline-flex}.touch-only{display:inline}}
 
   /* ============ TIPS & PACKING ============ */
   .tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
@@ -997,7 +1008,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     .act-arrow{display:none}
 
     /* Karte */
-    #map{height:340px}
+    #map{height:62vh;min-height:300px;max-height:440px}
     .map-legend{font-size:.74rem;gap:.8rem}
 
     /* Budget */
@@ -1026,10 +1037,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
     .pack-col{padding:1.2rem}
     .tips-grid{gap:.8rem}
 
-    /* Buttons unten: kleiner, sauber nebeneinander */
+    /* Button unten */
     .totop{width:42px;height:42px;bottom:1rem;right:1rem;font-size:1.1rem}
-    .printbtn{height:42px;bottom:1rem;right:4rem;padding:0 .9rem;font-size:.8rem}
-    .printbtn .lbl{display:none}
   }
 
   /* sehr schmale Geräte */
@@ -1049,7 +1058,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   @media print{
     @page{margin:1.4cm}
     body{background:#fff;color:#000}
-    .progress-wrap,.totop,.printbtn,.scroll-hint,.sea-waves,.stars,.cloud,.plane,.sun{display:none!important}
+    .progress-wrap,.totop,.map-fab,.map-close,.scroll-hint,.sea-waves,.stars,.cloud,.plane,.sun{display:none!important}
     .hero{min-height:auto;padding:1.5rem 0 1rem;background:none!important;color:var(--sea-deep);page-break-after:avoid}
     .hero h1{text-shadow:none}.hero h1 em{color:var(--coral)}.hero-eyebrow,.hero-dates,.stat .lbl{color:#555}
     .stat .num{color:var(--sea-deep)}
@@ -1079,7 +1088,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 <body>
 <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
 <button class="totop" id="toTop" aria-label="Nach oben">↑</button>
-<button class="printbtn" id="printBtn" aria-label="Drucken / als PDF speichern">🖨️<span class="lbl"> Drucken</span></button>
 
 <header class="hero">
   <div class="stars" id="stars"></div>
@@ -1119,10 +1127,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <div class="wrap">
     <div class="sec-label">Reiseverlauf</div>
     <h2 class="sec-title">Von der Andamansee in den Norden — und zurück ans Meer</h2>
-    <p class="explore-hint">Tippe eine Station an — auf der Karte und in der Liste leuchtet sie auf. Beim Scrollen wandert die Karte mit.</p>
+    <p class="explore-hint">Tippe eine Station an — auf der Karte und in der Liste leuchtet sie auf. Beim Scrollen wandert die Karte mit. <span class="touch-only">Zum freien Erkunden „Karte öffnen“ tippen.</span></p>
     <div class="explore">
       <div class="explore-map">
-        <div class="map-card"><div id="map"></div></div>
+        <div class="map-card">
+          <div id="map"></div>
+          <button class="map-fab" id="mapFab" type="button" aria-label="Karte im Vollbild öffnen">⤢ Karte öffnen</button>
+        </div>
+        <button class="map-close" id="mapClose" type="button" aria-label="Karte schliessen">✕</button>
         <div class="map-legend">
           <span><i class="dot-key sea"></i> Station</span>
           <span><i class="dot-key hotel"></i> Hotel ★</span>
@@ -1667,6 +1679,40 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
   map.fitBounds(L.latLngBounds(routePts).pad(0.12));
   map.on('click',()=>map.scrollWheelZoom.enable());
 
+  // ===== Mobile: Scroll-Falle vermeiden + Vollbild-Modus =====
+  const isTouch = window.matchMedia('(pointer:coarse)').matches;
+  const mapEl   = map.getContainer();
+  const fab     = document.getElementById('mapFab');
+  const closeBtn= document.getElementById('mapClose');
+  const HANDLERS=['dragging','touchZoom','scrollWheelZoom','doubleClickZoom','boxZoom','keyboard'];
+  function setInteractive(on){
+    HANDLERS.forEach(h=>{ if(map[h]) on ? map[h].enable() : map[h].disable(); });
+  }
+  if(isTouch){
+    // Inline = nicht ziehbare Vorschau → die Seite scrollt normal über die Karte hinweg.
+    // Marker bleiben antippbar (tap-Handler bleibt aktiv).
+    setInteractive(false);
+    let fsOpen=false;
+    function openFs(){
+      if(fsOpen)return; fsOpen=true;
+      mapEl.classList.add('fs'); document.body.classList.add('map-open');
+      setInteractive(true);
+      try{ history.pushState({mapFs:1},''); }catch(e){}
+      setTimeout(()=>{ map.invalidateSize(); map.fitBounds(L.latLngBounds(routePts).pad(0.12)); },80);
+    }
+    function closeFs(fromPop){
+      if(!fsOpen)return; fsOpen=false;
+      mapEl.classList.remove('fs'); document.body.classList.remove('map-open');
+      setInteractive(false);
+      setTimeout(()=>map.invalidateSize(),80);
+      if(!fromPop && history.state && history.state.mapFs){ try{ history.back(); }catch(e){} }
+    }
+    fab.addEventListener('click',openFs);
+    closeBtn.addEventListener('click',()=>closeFs(false));
+    window.addEventListener('popstate',()=>{ if(fsOpen)closeFs(true); });
+    window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&fsOpen)closeFs(false); });
+  }
+
   // animierte Route bis zur aktiven Station
   function animateRouteTo(loc){
     const idx=uniq.findIndex(s=>s.loc.join(',')===loc);
@@ -1774,25 +1820,8 @@ window.addEventListener('scroll',()=>{
   const h=document.documentElement.scrollHeight-window.innerHeight;
   pb.style.width=(window.scrollY/h*100)+'%';
   toTop.classList.toggle('show', window.scrollY>600);
-  document.getElementById('printBtn').classList.toggle('show', window.scrollY>600);
 },{passive:true});
 toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-// ===== Drucken / PDF =====
-const printBtn=document.getElementById('printBtn');
-printBtn.addEventListener('click',()=>{
-  // alle Etappen vor dem Druck aufklappen
-  document.querySelectorAll('.stop:not(.transport)').forEach(st=>{
-    st.classList.add('open');
-    const b=st.querySelector('.stop-body'); if(b) b.style.maxHeight='none';
-  });
-  // alle Info-Blöcke aufklappen
-  document.querySelectorAll('.iblock').forEach(ib=>{
-    ib.classList.add('open');
-    const b=ib.querySelector('.ibody'); if(b) b.style.maxHeight='none';
-  });
-  setTimeout(()=>window.print(),200);
-});
 
 // ===== Währungsumrechner (Richtkurs Jan 2026) =====
 (function(){
