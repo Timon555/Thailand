@@ -936,23 +936,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .touch-only{display:none}
   @media (pointer:coarse){.map-fab{display:inline-flex}.touch-only{display:inline}}
 
-  /* ===== Mobile: kleine Übersichtskarte oben links (PiP), antippbar zum Vergrössern ===== */
+  /* ===== Mobile: schmale Übersichtskarte über die ganze Breite oben (~1/5 Höhe) ===== */
   .mode-mini .explore{display:block;position:relative}
-  .mode-mini .explore-map{position:fixed;top:calc(env(safe-area-inset-top) + 10px);left:10px;z-index:7000;
-    width:38vw;max-width:165px;height:38vw;max-height:165px;margin:0;padding:0;
-    border-radius:16px;overflow:hidden;border:2px solid #fff;box-shadow:0 6px 22px rgba(8,40,44,.4);cursor:pointer;
-    opacity:0;transform:scale(.9) translateY(-8px);pointer-events:none;
-    transition:opacity .3s,transform .3s,width .32s ease,height .32s ease,top .32s ease,left .32s ease,border-radius .32s ease}
-  .mode-mini .explore-map.show{opacity:1;transform:none;pointer-events:auto}
+  .mode-mini .explore-map{position:sticky;top:0;z-index:60;width:100vw;margin:0 0 1.1rem calc(50% - 50vw);padding:0;
+    height:20vh;min-height:125px;max-height:200px;overflow:hidden;border-radius:0 0 18px 18px;cursor:pointer;
+    box-shadow:0 6px 18px rgba(8,40,44,.26);background:#cfe5e2}
   .mode-mini .map-card{height:100%;margin:0}
   .mode-mini #map{height:100%!important;min-height:0!important;max-height:none!important;border-radius:0;border:none;box-shadow:none}
   .mode-mini .map-legend{display:none}
   .mode-mini .map-fab{display:none}
-  .mini-expand{position:absolute;right:5px;bottom:5px;z-index:10;width:26px;height:26px;border-radius:50%;
-    background:rgba(8,54,58,.85);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;pointer-events:none}
-  /* vergrössert (fast Vollbild) */
-  .mode-mini .explore-map.big{top:0;left:0;width:100vw;max-width:none;height:100vh;height:100svh;max-height:none;
-    border-radius:0;border:none;cursor:default;opacity:1;transform:none}
+  .mini-expand{position:absolute;right:8px;bottom:8px;z-index:10;height:26px;padding:0 .6rem;border-radius:13px;
+    background:rgba(8,54,58,.86);color:#fff;display:inline-flex;align-items:center;gap:.3rem;
+    font:600 .68rem 'Outfit';pointer-events:none}
+  /* vergrössert (Vollbild) */
+  .mode-mini .explore-map.big{position:fixed;inset:0;width:100vw;height:100vh;height:100svh;min-height:0;max-height:none;
+    margin:0;border-radius:0;z-index:9999;cursor:default}
   .mode-mini .explore-map.big .mini-expand{display:none}
 
   /* ============ TIPS & PACKING ============ */
@@ -1148,7 +1146,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <div class="wrap">
     <div class="sec-label">Reiseverlauf</div>
     <h2 class="sec-title">Von der Andamansee in den Norden — und zurück ans Meer</h2>
-    <p class="explore-hint">Tippe eine Station an — auf der Karte und in der Liste leuchtet sie auf. Beim Scrollen wandert die Karte mit. <span class="touch-only">Die Übersichtskarte oben links scrollt mit — tippe sie an, um sie gross zu machen.</span></p>
+    <p class="explore-hint">Tippe eine Station an — auf der Karte und in der Liste leuchtet sie auf. Beim Scrollen wandert die Karte mit. <span class="touch-only">Die Übersichtskarte oben scrollt mit und zeigt, wo du gerade bist — tippe sie an für Vollbild.</span></p>
     <div class="explore">
       <div class="explore-map">
         <div class="map-card">
@@ -1733,7 +1731,7 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
     document.body.classList.add('mode-mini');
     const wrapEl=document.querySelector('.explore-map');
     document.body.appendChild(closeBtn);        // Schliessen-Button aus dem transformierten Mini-Container holen
-    const exp=document.createElement('div'); exp.className='mini-expand'; exp.textContent='⤢';
+    const exp=document.createElement('div'); exp.className='mini-expand'; exp.textContent='⤢ Vergrössern';
     (wrapEl.querySelector('.map-card')||wrapEl).appendChild(exp);
     setInteractive(false);
     let big=false,savedC=null,savedZ=null;
@@ -1759,9 +1757,6 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
     closeBtn.addEventListener('click',()=>closeBig(false));
     window.addEventListener('popstate',()=>{ if(big)closeBig(true); });
     window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&big)closeBig(false); });
-    // Mini-Karte nur einblenden, solange der Reiseverlauf im Blick ist
-    const sec=wrapEl.closest('section');
-    if(sec) new IntersectionObserver(es=>{es.forEach(e=>{ if(!big) wrapEl.classList.toggle('show', e.isIntersecting); });},{rootMargin:'0px 0px -8% 0px'}).observe(sec);
     requestAnimationFrame(()=>{ map.invalidateSize(); map.setView(uniq[0].loc,7); });
     window.addEventListener('resize',()=>map.invalidateSize());
   } else if(isTouch){
