@@ -1749,7 +1749,10 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
       if(!big)return; big=false;
       wrapEl.classList.remove('big'); document.body.classList.remove('map-open');
       setInteractive(false);
-      setTimeout(()=>{ map.invalidateSize(); },130);
+      setTimeout(()=>{ map.invalidateSize();
+        const a=document.querySelector('.stop.active');
+        if(a&&a.dataset.loc&&window.__highlightMarker)window.__highlightMarker(a.dataset.loc);
+      },130);
       if(!fromPop && history.state && history.state.mapBig){ try{ history.back(); }catch(e){} }
     }
     wrapEl.addEventListener('click',()=>{ if(!big)openBig(); });
@@ -1759,7 +1762,7 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
     // Mini-Karte nur einblenden, solange der Reiseverlauf im Blick ist
     const sec=wrapEl.closest('section');
     if(sec) new IntersectionObserver(es=>{es.forEach(e=>{ if(!big) wrapEl.classList.toggle('show', e.isIntersecting); });},{rootMargin:'0px 0px -8% 0px'}).observe(sec);
-    requestAnimationFrame(()=>{ map.invalidateSize(); map.fitBounds(L.latLngBounds(routePts).pad(0.2)); });
+    requestAnimationFrame(()=>{ map.invalidateSize(); map.setView(uniq[0].loc,7); });
     window.addEventListener('resize',()=>map.invalidateSize());
   } else if(isTouch){
     // ===== Touch-Tablet o.ä.: nicht ziehbare Vorschau + Vollbild-Button =====
@@ -1793,9 +1796,11 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
     if(shownLayer){map.removeLayer(shownLayer);shownLayer=null;}
     if(loc&&placeLayers[loc]){shownLayer=placeLayers[loc];shownLayer.addTo(map);}
     if(loc&&stationMarkers[loc]){
-      // kleine Übersichtskarte: ganze Route im Bild lassen (nur Pin hervorheben); sonst auf Station zentrieren
+      const ll=stationMarkers[loc].getLatLng();
+      // kleine Übersichtskarte: synchron zur Liste auf die aktive Station schwenken (mittlerer Zoom)
       const miniSmall=document.body.classList.contains('mode-mini')&&!document.body.classList.contains('map-open');
-      if(!miniSmall) map.panTo(stationMarkers[loc].getLatLng(),{animate:true,duration:.5});
+      if(miniSmall) map.setView(ll,7,{animate:true,duration:.7});
+      else map.panTo(ll,{animate:true,duration:.5});
     }
     if(loc)animateRouteTo(loc);
   };
