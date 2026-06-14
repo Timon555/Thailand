@@ -936,30 +936,24 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .touch-only{display:none}
   @media (pointer:coarse){.map-fab{display:inline-flex}.touch-only{display:inline}}
 
-  /* ===== Mobile: Karte als Vollbild-Hintergrund (Scrollytelling) ===== */
-  .mode-bgmap .explore{display:block;position:relative}
-  .mode-bgmap .explore-map{position:sticky;top:0;height:100vh;height:100svh;width:100vw;
-    margin:0 0 0 calc(50% - 50vw);padding:0;border-radius:0;z-index:0;overflow:hidden}
-  .mode-bgmap .map-card{height:100%;margin:0}
-  .mode-bgmap #map{height:100vh!important;height:100svh!important;min-height:0!important;max-height:none!important;
-    border-radius:0;border:none;box-shadow:none}
-  .mode-bgmap .map-legend{display:none}
-  /* die Stationskarten gleiten über die Karte */
-  .mode-bgmap .timeline{position:relative;z-index:2;margin-top:-100svh;padding:60svh .9rem 48svh;border:none}
-  .mode-bgmap .timeline::before{display:none}
-  .mode-bgmap .stop{margin:0 0 1.1rem;padding-left:0}
-  .mode-bgmap .stop::before{display:none}
-  .mode-bgmap .stop-head{background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(12px) saturate(1.3);
-    backdrop-filter:blur(12px) saturate(1.3);box-shadow:0 10px 34px rgba(8,40,44,.3);
-    border:1px solid rgba(255,255,255,.55)}
-  .mode-bgmap .stop.active .stop-head{border-color:var(--coral);box-shadow:0 12px 40px rgba(232,121,74,.42)}
-  .mode-bgmap .stop-inner{background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(10px);
-    backdrop-filter:blur(10px);border-radius:0 0 16px 16px;padding:.4rem .9rem .9rem;margin-top:-2px}
-  .mode-bgmap .stop.transport .stop-head{background:rgba(255,255,255,.62)}
-  /* „frei erkunden“-Knopf als fester runder Button */
-  .mode-bgmap .map-fab{position:fixed;left:auto;right:14px;bottom:calc(env(safe-area-inset-bottom) + 16px);
-    transform:none;z-index:8000;width:46px;height:46px;padding:0;justify-content:center;font-size:1.2rem;border-radius:50%}
-  .mode-bgmap .map-fab:active{transform:scale(.94)}
+  /* ===== Mobile: kleine Übersichtskarte oben links (PiP), antippbar zum Vergrössern ===== */
+  .mode-mini .explore{display:block;position:relative}
+  .mode-mini .explore-map{position:fixed;top:calc(env(safe-area-inset-top) + 10px);left:10px;z-index:7000;
+    width:38vw;max-width:165px;height:38vw;max-height:165px;margin:0;padding:0;
+    border-radius:16px;overflow:hidden;border:2px solid #fff;box-shadow:0 6px 22px rgba(8,40,44,.4);cursor:pointer;
+    opacity:0;transform:scale(.9) translateY(-8px);pointer-events:none;
+    transition:opacity .3s,transform .3s,width .32s ease,height .32s ease,top .32s ease,left .32s ease,border-radius .32s ease}
+  .mode-mini .explore-map.show{opacity:1;transform:none;pointer-events:auto}
+  .mode-mini .map-card{height:100%;margin:0}
+  .mode-mini #map{height:100%!important;min-height:0!important;max-height:none!important;border-radius:0;border:none;box-shadow:none}
+  .mode-mini .map-legend{display:none}
+  .mode-mini .map-fab{display:none}
+  .mini-expand{position:absolute;right:5px;bottom:5px;z-index:10;width:26px;height:26px;border-radius:50%;
+    background:rgba(8,54,58,.85);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;pointer-events:none}
+  /* vergrössert (fast Vollbild) */
+  .mode-mini .explore-map.big{top:0;left:0;width:100vw;max-width:none;height:100vh;height:100svh;max-height:none;
+    border-radius:0;border:none;cursor:default;opacity:1;transform:none}
+  .mode-mini .explore-map.big .mini-expand{display:none}
 
   /* ============ TIPS & PACKING ============ */
   .tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
@@ -1154,7 +1148,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <div class="wrap">
     <div class="sec-label">Reiseverlauf</div>
     <h2 class="sec-title">Von der Andamansee in den Norden — und zurück ans Meer</h2>
-    <p class="explore-hint">Tippe eine Station an — auf der Karte und in der Liste leuchtet sie auf. Beim Scrollen wandert die Karte mit. <span class="touch-only">Scroll dich durch die Stationen — die Karte im Hintergrund reist mit. Tippe ⤢ zum freien Erkunden.</span></p>
+    <p class="explore-hint">Tippe eine Station an — auf der Karte und in der Liste leuchtet sie auf. Beim Scrollen wandert die Karte mit. <span class="touch-only">Die Übersichtskarte oben links scrollt mit — tippe sie an, um sie gross zu machen.</span></p>
     <div class="explore">
       <div class="explore-map">
         <div class="map-card">
@@ -1733,20 +1727,44 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
     if(!fromPop && history.state && history.state.mapFs){ try{ history.back(); }catch(e){} }
   }
 
-  const useBg = window.matchMedia('(pointer:coarse) and (max-width:860px)').matches;
-  if(useBg){
-    // ===== Karte als Vollbild-Hintergrund (Scrollytelling) =====
-    document.body.classList.add('mode-bgmap');
-    setInteractive(false);            // Seite scrollt frei über die Karte
-    if(fab){ fab.innerHTML='⤢'; fab.setAttribute('aria-label','Karte frei erkunden'); fab.addEventListener('click',openFs); }
-    requestAnimationFrame(()=>{ map.invalidateSize(); map.fitBounds(L.latLngBounds(routePts).pad(0.18)); });
+  const useMini = window.matchMedia('(pointer:coarse) and (max-width:860px)').matches;
+  if(useMini){
+    // ===== Kleine Übersichtskarte oben links, antippbar zum Vergrössern =====
+    document.body.classList.add('mode-mini');
+    const wrapEl=document.querySelector('.explore-map');
+    document.body.appendChild(closeBtn);        // Schliessen-Button aus dem transformierten Mini-Container holen
+    const exp=document.createElement('div'); exp.className='mini-expand'; exp.textContent='⤢';
+    (wrapEl.querySelector('.map-card')||wrapEl).appendChild(exp);
+    setInteractive(false);
+    let big=false,savedC=null,savedZ=null;
+    function openBig(){
+      if(big)return; big=true;
+      savedC=map.getCenter(); savedZ=map.getZoom();
+      wrapEl.classList.add('big'); document.body.classList.add('map-open');
+      setInteractive(true);
+      try{ history.pushState({mapBig:1},''); }catch(e){}
+      setTimeout(()=>{ map.invalidateSize(); map.fitBounds(L.latLngBounds(routePts).pad(0.12)); },130);
+    }
+    function closeBig(fromPop){
+      if(!big)return; big=false;
+      wrapEl.classList.remove('big'); document.body.classList.remove('map-open');
+      setInteractive(false);
+      setTimeout(()=>{ map.invalidateSize(); },130);
+      if(!fromPop && history.state && history.state.mapBig){ try{ history.back(); }catch(e){} }
+    }
+    wrapEl.addEventListener('click',()=>{ if(!big)openBig(); });
+    closeBtn.addEventListener('click',()=>closeBig(false));
+    window.addEventListener('popstate',()=>{ if(big)closeBig(true); });
+    window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&big)closeBig(false); });
+    // Mini-Karte nur einblenden, solange der Reiseverlauf im Blick ist
+    const sec=wrapEl.closest('section');
+    if(sec) new IntersectionObserver(es=>{es.forEach(e=>{ if(!big) wrapEl.classList.toggle('show', e.isIntersecting); });},{rootMargin:'0px 0px -8% 0px'}).observe(sec);
+    requestAnimationFrame(()=>{ map.invalidateSize(); map.fitBounds(L.latLngBounds(routePts).pad(0.2)); });
     window.addEventListener('resize',()=>map.invalidateSize());
   } else if(isTouch){
     // ===== Touch-Tablet o.ä.: nicht ziehbare Vorschau + Vollbild-Button =====
     setInteractive(false);
     if(fab) fab.addEventListener('click',openFs);
-  }
-  if(isTouch){
     closeBtn.addEventListener('click',()=>closeFs(false));
     window.addEventListener('popstate',()=>{ if(fsOpen)closeFs(true); });
     window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&fsOpen)closeFs(false); });
@@ -1775,15 +1793,9 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
     if(shownLayer){map.removeLayer(shownLayer);shownLayer=null;}
     if(loc&&placeLayers[loc]){shownLayer=placeLayers[loc];shownLayer.addTo(map);}
     if(loc&&stationMarkers[loc]){
-      const ll=stationMarkers[loc].getLatLng();
-      if(document.body.classList.contains('mode-bgmap')){
-        // aktive Station in den freien oberen Kartenbereich rücken (über die Glaskarten)
-        const z=map.getZoom(),H=map.getSize().y;
-        const pt=map.project(ll,z).add([0,H*0.22]);
-        map.setView(map.unproject(pt,z),z,{animate:true,duration:.6});
-      } else {
-        map.panTo(ll,{animate:true,duration:.5});
-      }
+      // kleine Übersichtskarte: ganze Route im Bild lassen (nur Pin hervorheben); sonst auf Station zentrieren
+      const miniSmall=document.body.classList.contains('mode-mini')&&!document.body.classList.contains('map-open');
+      if(!miniSmall) map.panTo(stationMarkers[loc].getLatLng(),{animate:true,duration:.5});
     }
     if(loc)animateRouteTo(loc);
   };
