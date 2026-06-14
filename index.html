@@ -789,8 +789,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .explore{display:grid;grid-template-columns:minmax(320px,1fr) 1.05fr;gap:2rem;align-items:start}
   .explore-map{position:sticky;top:1.5rem}
   @media (max-width:860px){
-    .explore{grid-template-columns:1fr;gap:1.4rem}
-    .explore-map{position:static;order:-1}
+    .explore{grid-template-columns:1fr;gap:1.2rem}
+    /* Karte bleibt oben angepinnt, Reiseverlauf scrollt darunter durch */
+    .explore-map{position:sticky;top:.4rem;order:-1;z-index:5;align-self:start;
+      background:var(--sand);padding-bottom:.5rem;border-radius:20px}
   }
 
   /* Timeline */
@@ -1008,7 +1010,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     .act-arrow{display:none}
 
     /* Karte */
-    #map{height:62vh;min-height:300px;max-height:440px}
+    #map{height:40vh;min-height:230px;max-height:360px}
     .map-legend{font-size:.74rem;gap:.8rem}
 
     /* Budget */
