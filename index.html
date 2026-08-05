@@ -1249,6 +1249,7 @@ const stops = [
   {emoji:'✈️',days:'Tag 1 · 03.01.',name:'Anreise nach Phuket',transport:true,loc:[8.1053,98.3054],
    tline:'Edelweiss WK50 Direktflug · Zürich → Phuket · ~11,5 Std',tlink:'https://www.flyedelweiss.com/'},
   {emoji:'🏖️',days:'Tag 1–3',name:'Phuket — Kata Beach',loc:[7.8158,98.3004],beach:true,scene:'beach',
+   ci:'2027-01-03',co:'2027-01-06',
    hotels:[
      {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
      {n:'Novotel Phuket Kata Avista',r:'4.6',pid:'ChIJKYDOrJslUDARRWe9-mwl-Qo',q:'Novotel Phuket Kata Avista Resort',ll:[7.8260,98.2946]},
@@ -1259,6 +1260,7 @@ const stops = [
      {t:'Phuket Old Town — chinesisch-portugiesische Altstadt, Cafés',q:'Phuket Old Town historical streets',ll:[7.8851,98.3892]}],
    tline:'Flug Phuket → Chiang Mai · Thai AirAsia/Vietjet · ~1h50',tlink:'https://www.skyscanner.ch/'},
   {emoji:'🛕',days:'Tag 4–7',name:'Chiang Mai — Altstadt',loc:[18.7885,98.9820],scene:'temple',
+   ci:'2027-01-06',co:'2027-01-09',
    hotels:[
      {n:'The Chiang Mai Old Town Hotel',r:'4.7',pid:'ChIJB4ZtP4M62jARzWkW-KBbcsk',q:'The Chiang Mai Old Town Hotel',ll:[18.7859,98.9787]},
      {n:'At Chiang Mai',r:'4.4',pid:'ChIJpzyWQ5g62jARSYhronU6dJU',q:'At Chiang Mai SHA Extra Plus',ll:[18.7907,98.9892]},
@@ -1278,6 +1280,7 @@ const stops = [
      {t:'Tempel per Fahrrad oder Tuk-Tuk erkunden',q:'Ayutthaya Historical Park',ll:[14.3551,100.5650]}],
    tline:'Zug Ayutthaya → Bangkok · alle ~30 Min · ~1h10',tlink:'https://www.thailandtrains.com/'},
   {emoji:'🏙️',days:'Tag 9–10',name:'Bangkok',loc:[13.7499,100.4916],scene:'city',
+   ci:'2027-01-10',co:'2027-01-12',
    hotels:[
      {n:'Riva Arun Bangkok (Blick auf Wat Arun)',r:'4.6',pid:'',q:'Riva Arun Bangkok Hotel',ll:[13.7443,100.4907]},
      {n:'Nouvo City Hotel (Banglamphu)',r:'4.4',pid:'',q:'Nouvo City Hotel Bangkok',ll:[13.7646,100.4969]},
@@ -1290,6 +1293,7 @@ const stops = [
      {t:'Chatuchak Weekend Market (Sa/So)',q:'Chatuchak Weekend Market Bangkok',ll:[13.7998,100.5504]}],
    tline:'Flug Bangkok → Phuket · ~1h30',tlink:'https://www.skyscanner.ch/'},
   {emoji:'🏝️',days:'Tag 11–18',name:'Phuket — Strand & Inseln',loc:[7.8158,98.3004],beach:true,scene:'islands',
+   ci:'2027-01-12',co:'2027-01-20',
    hotels:[
      {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
      {n:'Novotel Phuket Kata Avista',r:'4.6',pid:'ChIJKYDOrJslUDARRWe9-mwl-Qo',q:'Novotel Phuket Kata Avista Resort',ll:[7.8260,98.2946]},
@@ -1301,6 +1305,7 @@ const stops = [
      {t:'Strand, Massage, Thai-Kochkurs',q:'Thai cooking class Phuket',ll:[7.8205,98.2966]}],
    tline:'Speedboot Phuket (Ao Po Marina) → Koh Yao Noi · ~30 Min',tlink:'https://www.google.com/maps/search/?api=1&query=Ao+Po+Grand+Marina'},
   {emoji:'🛶',days:'Tag 18–21',name:'Koh Yao Noi',loc:[8.1051,98.5915],beach:true,scene:'island',
+   ci:'2027-01-20',co:'2027-01-23',
    hotels:[
      {n:'Purana Resort Koh Yao Noi',r:'4.9',pid:'ChIJieG6M06xUTAR8IMxc5bmfj0',q:'Purana Resort Koh Yao Noi',ll:[8.1549,98.6017]},
      {n:'Cape Kudu Hotel (Boutique)',r:'4.6',pid:'',q:'Cape Kudu Hotel Koh Yao Noi',ll:[8.1210,98.6090]}],
@@ -1310,6 +1315,7 @@ const stops = [
      {t:'Mit dem Roller die Insel erkunden, einsame Strände',q:'Koh Yao Noi beach',ll:[8.1300,98.5870]}],
    tline:'Speedboot Koh Yao Noi → Phuket · zurück · ~30 Min',tlink:'https://www.google.com/maps/search/?api=1&query=Manoh+Pier+Koh+Yao+Noi'},
   {emoji:'🌅',days:'Tag 21–29',name:'Phuket — Ausklang',loc:[7.8158,98.3004],beach:true,scene:'sunset',
+   ci:'2027-01-23',co:'2027-02-01',
    hotels:[
      {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
      {n:'Novotel Phuket Kata Avista',r:'4.6',pid:'ChIJKYDOrJslUDARRWe9-mwl-Qo',q:'Novotel Phuket Kata Avista Resort',ll:[7.8260,98.2946]},
@@ -1434,6 +1440,13 @@ const info = [
 function mapsUrl(o){
   if(o.pid) return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(o.q)+'&query_place_id='+o.pid;
   return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(o.q);
+}
+
+/* Google-Hotels-Link mit vorausgewähltem Check-in/Check-out der Etappe */
+function hotelsUrl(h,s){
+  let u='https://www.google.com/travel/search?q='+encodeURIComponent(h.q);
+  if(s&&s.ci&&s.co) u+='&checkin='+s.ci+'&checkout='+s.co;
+  return u;
 }
 
 // ===== Sicherer Speicher (localStorage mit Fallback) =====
@@ -1605,7 +1618,8 @@ stops.forEach((s,i)=>{
         if(h.pid===''&&h.q===''){detail+='<div class="hotel-name plain">'+h.n+'</div>';}
         else{detail+='<div class="hotel-item"><div class="hotel-line"><span class="hotel-name">'+h.n+'</span>'+
           (h.r?'<span class="rating">★ '+h.r+'</span>':'')+'</div><div class="link-row">'+
-          '<a href="'+mapsUrl(h)+'" target="_blank" rel="noopener" class="lnk map">Karte</a></div></div>';}
+          '<a href="'+mapsUrl(h)+'" target="_blank" rel="noopener" class="lnk map">Karte</a>'+
+          '<a href="'+hotelsUrl(h,s)+'" target="_blank" rel="noopener" class="lnk map">Preise prüfen</a></div></div>';}
       });
       detail+='</div>';
     }
@@ -1694,7 +1708,7 @@ if(firstReal){firstReal.classList.add('open','active');const b=firstReal.querySe
     (s.hotels||[]).forEach(h=>{ if(!h.ll)return;
       const m=L.marker(h.ll,{icon:smallIcon('hotel'),zIndexOffset:300});
       const g=h.pid?`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.q)}&query_place_id=${h.pid}`:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(h.q)}`;
-      m.bindPopup(`<div class="pop-kind">★ Hotel</div><div class="pop-name sm">${h.n}</div>`+(h.r?`<div class="pop-rate">★ ${h.r}</div>`:'')+`<div class="pop-links"><a target="_blank" rel="noopener" href="${g}">In Maps öffnen ↗</a></div>`);
+      m.bindPopup(`<div class="pop-kind">★ Hotel</div><div class="pop-name sm">${h.n}</div>`+(h.r?`<div class="pop-rate">★ ${h.r}</div>`:'')+`<div class="pop-links"><a target="_blank" rel="noopener" href="${g}">In Maps öffnen ↗</a><br><a target="_blank" rel="noopener" href="${hotelsUrl(h,s)}">Preise prüfen ↗</a></div>`);
       grp.addLayer(m);
     });
     (s.acts||[]).forEach(a=>{ if(!a.ll)return;
