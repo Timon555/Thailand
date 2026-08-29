@@ -1175,7 +1175,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div class="budget-card">
           <p style="opacity:.7;font-size:.86rem;margin-bottom:.8rem">Trage beim Buchen eure echten Preise ein — Summe & Diagramm rechnen sich live. Werte für 2 Personen.</p>
           <div class="brow"><i class="bdot" style="background:#e8794a"></i><label>✈️ Flüge (Langstrecke + Inland)</label><input type="number" data-cost data-cat="Flüge" value="2660"></div>
-          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (~27 Nächte)</label><input type="number" data-cost data-cat="Hotels" value="2300"></div>
+          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (~28 Nächte + 1 Zugnacht)</label><input type="number" data-cost data-cat="Hotels" value="2300"></div>
           <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport</label><input type="number" data-cost data-cat="Transport" value="345"></div>
           <div class="brow"><i class="bdot" style="background:#14a098"></i><label>🎟️ Aktivitäten & Touren</label><input type="number" data-cost data-cat="Aktivitäten" value="470"></div>
           <div class="brow"><i class="bdot" style="background:#f2a07a"></i><label>🍜 Essen & Trinken</label><input type="number" data-cost data-cat="Essen" value="1500"></div>
@@ -1208,8 +1208,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <h2 class="sec-title">Früh buchen lohnt sich</h2>
     <div class="tips-grid">
       <div class="tip"><h3>Edelweiss-Flüge</h3><p>Zürich↔Phuket buchen, sobald der Winterflugplan 2026/27 erscheint.</p></div>
-      <div class="tip"><h3>Nachtzug #9</h3><p>Untere Betten gehen Wochen vorher weg — über 12Go Asia oder thailandtrain.org.</p></div>
-      <div class="tip"><h3>Koh-Yao-Resorts</h3><p>Wenig Auswahl, Januar-Hochsaison schnell ausgebucht.</p></div>
+      <div class="tip"><h3>Nachtzug #9 · 12.01.</h3><p>Untere Betten gehen Wochen vorher weg — über 12Go Asia oder thailandtrain.org.</p></div>
+      <div class="tip"><h3>Koh-Yao-Resorts · 7 Nächte</h3><p>Wenig Auswahl, Januar-Hochsaison schnell ausgebucht — 19.–26.01. früh reservieren.</p></div>
+      <div class="tip"><h3>Inlandflug 07.01.</h3><p>Phuket → Chiang Mai um 18:15 Uhr — Check-out im ibis Styles Patong, Gepäck an der Rezeption lassen.</p></div>
+      <div class="tip"><h3>Phuket Old Town</h3><p>Nur wenige Boutique-Shophouses, 15.–19.01. rechtzeitig buchen.</p></div>
     </div>
   </div>
 </section>
@@ -1248,15 +1250,18 @@ svg.leaflet-image-layer.leaflet-interactive path {
 const stops = [
   {emoji:'✈️',days:'Tag 1 · 03.01.',name:'Anreise nach Phuket',transport:true,loc:[8.1053,98.3054],
    tline:'Edelweiss WK50 Direktflug · Zürich → Phuket · ~11,5 Std',tlink:'https://www.flyedelweiss.com/'},
-  {emoji:'🏖️',days:'Tag 1–3',name:'Phuket — Kata Beach',loc:[7.8158,98.3004],beach:true,scene:'beach',
+  {emoji:'🏖️',days:'Tag 1–5 · 03.–07.01.',name:'Phuket — Patong',loc:[7.8925,98.2986],beach:true,scene:'beach',
+   note:'4 Nächte im ibis Styles Phuket Patong — Check-out am 7. Januar, abends geht der Flug nach Chiang Mai',
    hotels:[
-     {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
-     {n:'Novotel Phuket Kata Avista',r:'4.6',pid:'ChIJKYDOrJslUDARRWe9-mwl-Qo',q:'Novotel Phuket Kata Avista Resort',ll:[7.8260,98.2946]}],
+     {n:'ibis Styles Phuket Patong · gebucht',r:'4.2',q:'ibis Styles Phuket Patong',ll:[7.8925,98.2986]}],
    acts:[
-     {t:'Kata & Karon Beach — schwimmen, akklimatisieren',q:'Kata Beach Phuket',ll:[7.8205,98.2966]},
-     {t:'Phuket Old Town — chinesisch-portugiesische Altstadt, Cafés',q:'Phuket Old Town historical streets',ll:[7.8851,98.3892]}],
-   tline:'Flug Phuket → Chiang Mai · Thai AirAsia/Vietjet · ~1h50',tlink:'https://www.skyscanner.ch/'},
-  {emoji:'🛕',days:'Tag 4–7',name:'Chiang Mai — Altstadt',loc:[18.7885,98.9820],scene:'temple',
+     {t:'Patong Beach — schwimmen, akklimatisieren',q:'Patong Beach Phuket',ll:[7.8926,98.2960]},
+     {t:'Phuket Old Town — chinesisch-portugiesische Altstadt, Cafés',q:'Phuket Old Town historical streets',ll:[7.8851,98.3892]},
+     {t:'Big Buddha & Karon Viewpoint — Halbtagesausflug',q:'Big Buddha Phuket',ll:[7.8277,98.3125]},
+     {t:'Sonnenuntergang am Promthep Cape',q:'Promthep Cape Phuket',ll:[7.7620,98.3050]}],
+   tline:'Flug Phuket → Chiang Mai · 07.01. ab 18:15 Uhr · ~1h55 (Ankunft ~20:10)',tlink:'https://www.skyscanner.ch/'},
+  {emoji:'🛕',days:'Tag 5–10 · 07.–12.01.',name:'Chiang Mai — Altstadt',loc:[18.7885,98.9820],scene:'temple',
+   note:'5 Nächte · Ankunft am 7. Januar spätabends, Abreise am 12. Januar mit dem Nachtzug',
    hotels:[
      {n:'The Chiang Mai Old Town Hotel',r:'4.7',pid:'ChIJB4ZtP4M62jARzWkW-KBbcsk',q:'The Chiang Mai Old Town Hotel',ll:[18.7859,98.9787]},
      {n:'At Chiang Mai',r:'4.4',pid:'ChIJpzyWQ5g62jARSYhronU6dJU',q:'At Chiang Mai SHA Extra Plus',ll:[18.7907,98.9892]}],
@@ -1264,16 +1269,19 @@ const stops = [
      {t:'Wat Phra Singh — schönster Tempel der Altstadt (früh morgens)',q:'Wat Phra Singh Chiang Mai',ll:[18.7885,98.9820]},
      {t:'Ethical Elephant Sanctuary by Big Boy (4.9) — kein Reiten, Wasserfall, Pad-Thai',q:'Ethical elephant sanctuary chiangmai Big Boy',ll:[18.9180,98.9928]},
      {t:'Wat Phra That Doi Suthep — Bergtempel, Lift vorhanden',q:'Wat Phra That Doi Suthep',ll:[18.8050,98.9216]},
+     {t:'Sticky Waterfall (Bua Thong) — barfuss den Kalkfelsen hochklettern',q:'Bua Thong Sticky Waterfall',ll:[19.1075,98.9219]},
+     {t:'Tagesausflug Doi Inthanon — höchster Berg Thailands, Wasserfälle',q:'Doi Inthanon National Park',ll:[18.5885,98.4867]},
      {t:'Old City & Nachtmarkt — schlendern, Streetfood',q:'Chiang Mai old city night market',ll:[18.7870,98.9935]}],
-   tline:'Nachtzug #9 · Chiang Mai → Ayutthaya · ab ~18:00 · ~12 Std',tlink:'https://12go.asia/'},
-  {emoji:'🏯',days:'Tag 8 · Vormittag',name:'Ayutthaya',loc:[14.3569,100.5675],scene:'ruins',
-   note:'Tagesstopp — Gepäck am Bahnhof einschließen (Schließfach)',
+   tline:'Nachtzug #9 · Chiang Mai → Ayutthaya · 12.01. ab ~18:00 · ~12 Std, Ankunft früh am 13.01.',tlink:'https://12go.asia/'},
+  {emoji:'🏯',days:'Tag 11 · 13.01. Vormittag',name:'Ayutthaya',loc:[14.3569,100.5675],scene:'ruins',
+   note:'Tagesstopp nach der Zugnacht — Gepäck am Bahnhof einschliessen (Schliessfach)',
    acts:[
      {t:'Wat Mahathat — berühmter Buddhakopf in der Baumwurzel',q:'Wat Mahathat Ayutthaya',ll:[14.3569,100.5675]},
      {t:'Wat Phra Si Sanphet & Historical Park',q:'Ayutthaya Historical Park',ll:[14.3556,100.5589]},
      {t:'Tempel per Fahrrad oder Tuk-Tuk erkunden',q:'Ayutthaya Historical Park',ll:[14.3551,100.5650]}],
    tline:'Zug Ayutthaya → Bangkok · alle ~30 Min · ~1h10',tlink:'https://www.thailandtrains.com/'},
-  {emoji:'🏙️',days:'Tag 9–10',name:'Bangkok',loc:[13.7499,100.4916],scene:'city',
+  {emoji:'🏙️',days:'Tag 11–13 · 13.–15.01.',name:'Bangkok',loc:[13.7499,100.4916],scene:'city',
+   note:'2 Nächte · Mi–Fr, der Chatuchak-Markt fällt darum weg (nur Sa/So)',
    hotels:[
      {n:'Grande Centre Point Sukhumvit 55',r:'4.6',pid:'ChIJF41Gxqyf4jARbUM2nainGDo',q:'Grande Centre Point Sukhumvit 55',ll:[13.7317,100.5824]},
      {n:'Hotel Royal Bangkok @ Chinatown',r:'4.3',pid:'ChIJNeaGgiGZ4jARti015OlJo2A',q:'Hotel Royal Bangkok Chinatown',ll:[13.7405,100.5099]}],
@@ -1281,27 +1289,36 @@ const stops = [
      {t:'Grand Palace + Wat Pho (liegender Buddha) — früh hin',q:'Grand Palace Bangkok',ll:[13.7499,100.4916]},
      {t:'Wat Arun bei Sonnenuntergang vom Viewing Point gegenüber',q:'Wat Arun Bangkok',ll:[13.7437,100.4889]},
      {t:'Chao-Phraya-Bootsfahrt ab Wat Pho Pier',q:'Wat Pho Pier Bangkok',ll:[13.7445,100.4913]},
-     {t:'Chatuchak Weekend Market (Sa/So)',q:'Chatuchak Weekend Market Bangkok',ll:[13.7998,100.5504]}],
-   tline:'Flug Bangkok → Phuket · ~1h30',tlink:'https://www.skyscanner.ch/'},
-  {emoji:'🏝️',days:'Tag 11–18',name:'Phuket — Strand & Inseln',loc:[7.8158,98.3004],beach:true,scene:'islands',
+     {t:'Yaowarat (Chinatown) — Streetfood am Abend',q:'Yaowarat Road Bangkok Chinatown',ll:[13.7398,100.5099]}],
+   tline:'Flug Bangkok → Phuket · 15.01. · ~1h30',tlink:'https://www.skyscanner.ch/'},
+  {emoji:'🏘️',days:'Tag 13–17 · 15.–19.01.',name:'Phuket — Old Town',loc:[7.8845,98.3875],scene:'islands',
+   note:'4 Nächte in der Altstadt — Sonntag, 17.01. ist Lard-Yai-Walking-Street',
    hotels:[
-     {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
-     {n:'Novotel Phuket Kata Avista',r:'4.6',pid:'ChIJKYDOrJslUDARRWe9-mwl-Qo',q:'Novotel Phuket Kata Avista Resort',ll:[7.8260,98.2946]}],
+     {n:'The Memory at On On Hotel',r:'4.4',q:'The Memory at On On Hotel Phuket Old Town',ll:[7.8836,98.3880]},
+     {n:'Casa Blanca Boutique Hotel',r:'4.5',q:'Casa Blanca Boutique Hotel Phuket Old Town',ll:[7.8846,98.3868]},
+     {n:'Woo Gallery & Boutique Hotel',r:'4.6',q:'Woo Gallery and Boutique Hotel Phuket',ll:[7.8840,98.3903]}],
    acts:[
-     {t:'Bootstour Phi Phi Islands — Maya Bay, Lagunen (Cruise-Boot ruhiger)',q:'Phi Phi Islands tour Phuket',ll:[7.6797,98.7668]},
+     {t:'Thalang Road & Soi Romanee — Shophouses, Cafés, Streetart',q:'Thalang Road Phuket Old Town',ll:[7.8843,98.3878]},
+     {t:'Lard Yai Sunday Walking Street (So, 16–22 Uhr)',q:'Phuket Walking Street Lard Yai',ll:[7.8846,98.3884]},
+     {t:'Bootstour Phi Phi Islands ab Rassada Pier — Maya Bay, Lagunen',q:'Rassada Pier Phuket',ll:[7.8497,98.4085]},
      {t:'Bootstour James Bond Island / Phang Nga Bay — Kanufahren',q:'James Bond Island Phang Nga Bay tour',ll:[8.2742,98.5050]},
-     {t:'Strand, Massage, Thai-Kochkurs',q:'Thai cooking class Phuket',ll:[7.8205,98.2966]}],
-   tline:'Speedboot Phuket (Ao Po Marina) → Koh Yao Noi · ~30 Min',tlink:'https://www.google.com/maps/search/?api=1&query=Ao+Po+Grand+Marina'},
-  {emoji:'🛶',days:'Tag 18–21',name:'Koh Yao Noi',loc:[8.1051,98.5915],beach:true,scene:'island',
+     {t:'Thai-Kochkurs & Massage',q:'Thai cooking class Phuket Town',ll:[7.8845,98.3875]}],
+   tline:'Speedboot Phuket (Ao Po Marina) → Koh Yao Noi · 19.01. · ~30 Min',tlink:'https://www.google.com/maps/search/?api=1&query=Ao+Po+Grand+Marina'},
+  {emoji:'🛶',days:'Tag 17–24 · 19.–26.01.',name:'Koh Yao Noi',loc:[8.1051,98.5915],beach:true,scene:'island',
+   note:'7 Nächte — eine ganze Woche Insel, ruhigster Teil der Reise',
    hotels:[
-     {n:'Koh Yao Yai Village Beach Resort',r:'4.6',pid:'ChIJDf6C7yi2UTARJ4Yl-4RZZpw',q:'Koh Yao Yai Village Beach Resort',ll:[8.0316,98.6020]},
-     {n:'Purana Resort Koh Yao Noi',r:'4.9',pid:'ChIJieG6M06xUTAR8IMxc5bmfj0',q:'Purana Resort Koh Yao Noi',ll:[8.1549,98.6017]}],
+     {n:'Purana Resort Koh Yao Noi',r:'4.9',pid:'ChIJieG6M06xUTAR8IMxc5bmfj0',q:'Purana Resort Koh Yao Noi',ll:[8.1549,98.6017]},
+     {n:'Koyao Island Resort',r:'4.6',q:'Koyao Island Resort Koh Yao Noi',ll:[8.1120,98.6210]},
+     {n:'Koh Yao Yai Village Beach Resort',r:'4.6',pid:'ChIJDf6C7yi2UTARJ4Yl-4RZZpw',q:'Koh Yao Yai Village Beach Resort',ll:[8.0316,98.6020]}],
    acts:[
      {t:'Kajaktour durch die Mangroven (»Discovered Koh Yao Noi«, 5.0) mit Lunch',q:'Discovered Koh Yao Noi kayak',ll:[8.1051,98.5915]},
      {t:'Tabeak Viewpoint — Blick über die Krabi-Felsen, Sonnenaufgang',q:'Tabeak Viewpoint Koh Yao Noi',ll:[8.1087,98.6206]},
+     {t:'Longtail-Tour zu Koh Hong & Hong Island Lagoon',q:'Koh Hong Krabi',ll:[8.1500,98.6900]},
+     {t:'Tagesausflug nach Railay Beach / Krabi',q:'Railay Beach Krabi',ll:[8.0084,98.8375]},
      {t:'Mit dem Roller die Insel erkunden, einsame Strände',q:'Koh Yao Noi beach',ll:[8.1300,98.5870]}],
-   tline:'Speedboot Koh Yao Noi → Phuket · zurück · ~30 Min',tlink:'https://www.google.com/maps/search/?api=1&query=Manoh+Pier+Koh+Yao+Noi'},
-  {emoji:'🌅',days:'Tag 21–29',name:'Phuket — Ausklang',loc:[7.8158,98.3004],beach:true,scene:'sunset',
+   tline:'Speedboot Koh Yao Noi → Phuket · 26.01. · ~30 Min',tlink:'https://www.google.com/maps/search/?api=1&query=Manoh+Pier+Koh+Yao+Noi'},
+  {emoji:'🌅',days:'Tag 24–30 · 26.01.–01.02.',name:'Phuket — Ausklang',loc:[7.8158,98.3004],beach:true,scene:'sunset',
+   note:'6 Nächte am Strand — Hotel noch offen, Kata/Karon als Vorschlag',
    hotels:[
      {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
      {n:'Novotel Phuket Kata Avista',r:'4.6',pid:'ChIJKYDOrJslUDARRWe9-mwl-Qo',q:'Novotel Phuket Kata Avista Resort',ll:[7.8260,98.2946]}],
@@ -1349,7 +1366,7 @@ const packing = [
     'Edelweiss-Tickets (Hin- & Rückflug, ausgedruckt)',
     'Bestätigtes Rückflugticket griffbereit (Einreise)',
     'TDAC-Bestätigung (Digital Arrival Card, s. unten)',
-    'Nachtzug-Reservierung #9',
+    'Nachtzug-Reservierung #9 (12.01., untere Betten)',
     'Hotelbuchungen (auch offline gespeichert)',
     'Reiseversicherungs-Police + Notfallnummer',
     'Kreditkarte + etwas Bargeld (CHF/EUR zum Wechseln)',
@@ -1435,30 +1452,42 @@ const store={
 
 // ===== Tag-für-Tag-Pläne pro Etappe (key = loc) =====
 const plans={
-  '7.8158,98.3004|kata':[['Tag 1','Ankunft, einchecken, Füße in den Sand']
-    ,['Tag 2','Kata & Karon Beach, akklimatisieren']
-    ,['Tag 3','Ausflug Phuket Old Town, abends Markt']],
-  '18.7885,98.982':[['Tag 4','Anreise, Altstadt-Tempel zu Fuß']
-    ,['Tag 5','Elefanten-Sanctuary (ganzer Tag)']
-    ,['Tag 6','Doi Suthep + Nachtmarkt']
-    ,['Tag 7','Café-Hopping, abends Nachtzug #9']],
-  '14.3569,100.5675':[['Tag 8 AM','Tempelruinen per Rad/Tuk-Tuk']
-    ,['Tag 8 PM','Zug nach Bangkok (~1h10)']],
-  '13.7499,100.4916':[['Tag 9','Grand Palace + Wat Pho früh, Wat Arun zum Sonnenuntergang']
-    ,['Tag 10','Chao-Phraya-Boot, Chatuchak Market, Flug nach Phuket']],
-  '7.8158,98.3004|islands':[['Tag 11–13','Phi Phi & James Bond Island Bootstouren']
-    ,['Tag 14–16','Strandtage, Thai-Kochkurs, Massage']
-    ,['Tag 17–18','Entspannen, dann Speedboot nach Koh Yao Noi']],
-  '8.1051,98.5915':[['Tag 18','Überfahrt, Resort beziehen']
-    ,['Tag 19','Mangroven-Kajaktour mit Lunch']
-    ,['Tag 20','Roller-Tour, Tabeak Viewpoint zum Sonnenaufgang']
-    ,['Tag 21','Zurück nach Phuket']],
-  '7.8158,98.3004|sunset':[['Tag 21–25','Lieblingsstrände, optional eine letzte Bootstour']
-    ,['Tag 26–29','Sonnenuntergänge, Massage, Souvenirs']]
+  '7.8925,98.2986|patong':[['Tag 1 · 03.01.','Ankunft, ibis Styles Patong beziehen, Füsse in den Sand']
+    ,['Tag 2 · 04.01.','Patong Beach, akklimatisieren']
+    ,['Tag 3 · 05.01.','Big Buddha, Karon Viewpoint, Promthep Cape zum Sonnenuntergang']
+    ,['Tag 4 · 06.01.','Phuket Old Town, Cafés, abends Markt']
+    ,['Tag 5 · 07.01.','Check-out, Strandvormittag — 18:15 Uhr Flug nach Chiang Mai']],
+  '18.7885,98.982':[['Tag 5 · 07.01.','Späte Ankunft (~20:10), einchecken']
+    ,['Tag 6 · 08.01.','Altstadt-Tempel zu Fuss, Wat Phra Singh']
+    ,['Tag 7 · 09.01.','Elefanten-Sanctuary (ganzer Tag)']
+    ,['Tag 8 · 10.01.','Doi Suthep + Nachtmarkt']
+    ,['Tag 9 · 11.01.','Doi Inthanon oder Sticky Waterfall']
+    ,['Tag 10 · 12.01.','Café-Hopping, abends Nachtzug #9 nach Ayutthaya']],
+  '14.3569,100.5675':[['Tag 11 AM · 13.01.','Ankunft früh, Tempelruinen per Rad/Tuk-Tuk']
+    ,['Tag 11 PM · 13.01.','Zug nach Bangkok (~1h10)']],
+  '13.7499,100.4916':[['Tag 11 · 13.01.','Ankunft, Yaowarat-Streetfood am Abend']
+    ,['Tag 12 · 14.01.','Grand Palace + Wat Pho früh, Wat Arun zum Sonnenuntergang']
+    ,['Tag 13 · 15.01.','Chao-Phraya-Boot, dann Flug nach Phuket']],
+  '7.8845,98.3875|oldtown':[['Tag 13 · 15.01.','Ankunft, Altstadt-Bummel, Soi Romanee']
+    ,['Tag 14 · 16.01.','Bootstour Phi Phi ab Rassada Pier']
+    ,['Tag 15 · 17.01.','James Bond Island / Phang Nga Bay, abends Lard Yai Walking Street']
+    ,['Tag 16 · 18.01.','Thai-Kochkurs, Massage, Cafés']
+    ,['Tag 17 · 19.01.','Speedboot ab Ao Po Marina nach Koh Yao Noi']],
+  '8.1051,98.5915':[['Tag 17 · 19.01.','Überfahrt, Resort beziehen']
+    ,['Tag 18 · 20.01.','Mangroven-Kajaktour mit Lunch']
+    ,['Tag 19 · 21.01.','Roller-Tour, Tabeak Viewpoint zum Sonnenaufgang']
+    ,['Tag 20 · 22.01.','Longtail-Tour Koh Hong & Lagunen']
+    ,['Tag 21 · 23.01.','Strandtag, nichts tun']
+    ,['Tag 22 · 24.01.','Tagesausflug Railay / Krabi']
+    ,['Tag 23 · 25.01.','Letzter Inseltag, Sonnenuntergang am Westufer']
+    ,['Tag 24 · 26.01.','Zurück nach Phuket']],
+  '7.8158,98.3004|sunset':[['Tag 24–27 · 26.–29.01.','Lieblingsstrände, optional eine letzte Bootstour']
+    ,['Tag 28–29 · 30.–31.01.','Sonnenuntergänge, Massage, Souvenirs']
+    ,['Tag 30 · 01.02.','Heimflug nach Zürich']]
 };
 function planKey(s){
-  if(s.scene==='beach') return '7.8158,98.3004|kata';
-  if(s.scene==='islands') return '7.8158,98.3004|islands';
+  if(s.scene==='beach') return '7.8925,98.2986|patong';
+  if(s.scene==='islands') return '7.8845,98.3875|oldtown';
   if(s.scene==='sunset') return '7.8158,98.3004|sunset';
   return s.loc?s.loc.join(','):'';
 }
