@@ -1211,7 +1211,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="tip"><h3>Nachtzug #9 · 12.01.</h3><p>Untere Betten gehen Wochen vorher weg — über 12Go Asia oder thailandtrain.org.</p></div>
       <div class="tip"><h3>Koh-Yao-Resorts · 7 Nächte</h3><p>Wenig Auswahl, Januar-Hochsaison schnell ausgebucht — 21.–28.01. früh reservieren.</p></div>
       <div class="tip"><h3>Inlandflüge</h3><p>07.01. Phuket → Chiang Mai um 18:15 Uhr; 16.01. morgens Bangkok → Krabi.</p></div>
-      <div class="tip"><h3>Railay · 5 Nächte</h3><p>Autofreie Halbinsel mit nur einer Handvoll Hotels — 16.–21.01. zuerst festmachen.</p></div>
+      <div class="tip"><h3>Ao Nang · 5 Nächte</h3><p>Januar-Hochsaison — die strandnahen Hotels 16.–21.01. früh buchen.</p></div>
     </div>
   </div>
 </section>
@@ -1294,20 +1294,20 @@ const stops = [
      {t:'Jim Thompson House — Teakvilla & Seidenmuseum',q:'Jim Thompson House Bangkok',ll:[13.7492,100.5283]},
      {t:'Talad Rot Fai Ratchada — Nachtmarkt mit Streetfood',q:'Talad Rot Fai Ratchada night market',ll:[13.7668,100.5395]}],
    tline:'Flug Bangkok → Krabi · 16.01. morgens · ~1h20 · zum Flughafen: Grab 40–60 Min (400–500 THB) oder MRT + Airport Rail Link ~60 Min',tlink:'https://www.skyscanner.ch/'},
-  {emoji:'🧗',days:'Tag 14–19 · 16.–21.01.',name:'Krabi — Railay',loc:[8.0084,98.8375],beach:true,scene:'islands',
-   note:'5 Nächte · autofreie Halbinsel, nur per Longtail erreichbar. Alles flach und zu Fuss in 10–15 Min verbunden — vom Flughafen Krabi Van nach Ao Nang (~30 Min), dann Boot (~15 Min)',
+  {emoji:'⛵',days:'Tag 14–19 · 16.–21.01.',name:'Krabi — Ao Nang',loc:[8.0320,98.8220],beach:true,scene:'islands',
+   note:'5 Nächte im Hauptort von Krabi — Restaurants, Nachtmarkt und Massage zu Fuss, Longtails nach Railay und Phra Nang in 10 Min. Vom Flughafen Krabi Van oder Taxi, ~30 Min',
    hotels:[
-     {n:'Railay Bay Resort & Spa',r:'4.3',q:'Railay Bay Resort and Spa Krabi',ll:[8.0106,98.8373]},
-     {n:'Sand Sea Resort Railay',r:'4.3',q:'Sand Sea Resort Railay Beach',ll:[8.0090,98.8364]},
-     {n:'Rayavadee (Luxus)',r:'4.7',q:'Rayavadee Krabi',ll:[8.0124,98.8300]}],
+     {n:'Aonang Villa Resort',r:'4.3',q:'Aonang Villa Resort Krabi',ll:[8.0310,98.8208]},
+     {n:'Centara Ao Nang Beach Resort & Spa',r:'4.3',q:'Centara Ao Nang Beach Resort and Spa Krabi',ll:[8.0255,98.8188]},
+     {n:'Ao Nang Cliff Beach Resort',r:'4.3',q:'Ao Nang Cliff Beach Resort Krabi',ll:[8.0338,98.8243]}],
    acts:[
-     {t:'Phra Nang Cave Beach — gilt vielen als schönster Strand Thailands',q:'Phra Nang Cave Beach Railay',ll:[8.0070,98.8299]},
-     {t:'Railay West — Badestrand und Sonnenuntergang, flacher Weg vom Hotel',q:'Railay West Beach',ll:[8.0106,98.8355]},
+     {t:'Phra Nang Cave Beach — 10 Min per Longtail, gilt vielen als schönster Strand Thailands',q:'Phra Nang Cave Beach Railay',ll:[8.0070,98.8299]},
+     {t:'Railay West — Tagesausflug per Longtail, baden und Sonnenuntergang',q:'Railay West Beach',ll:[8.0106,98.8355]},
      {t:'Four-Island-Tour — Chicken Island, Poda, Tup mit Sandbank',q:'Four Island Tour Ao Nang Krabi',ll:[7.9500,98.8200]},
      {t:'Hong-Islands-Tour — türkise Lagune, Schnorcheln',q:'Hong Island Krabi tour',ll:[8.0870,98.7050]},
-     {t:'Sonnenuntergangs-Longtail mit Apéro',q:'Railay Beach sunset longtail',ll:[8.0106,98.8355]},
-     {t:'Ao Nang — Restaurants, Nachtmarkt, Massage (10 Min per Boot)',q:'Ao Nang Beach Krabi',ll:[8.0320,98.8220]}],
-   tline:'Speedboot Railay → Koh Yao Noi · 21.01. · ~45–80 Min (Koh Yao Sun Smile, ~650 THB)',tlink:'https://www.phuketferry.com/route-koh-yao-noi-railay.html'},
+     {t:'Nopparat Thara Beach — langer, ruhiger Strand gleich nebenan',q:'Nopparat Thara Beach Krabi',ll:[8.0395,98.8060]},
+     {t:'Ao Nang Walking Street & Seafood am Strand',q:'Ao Nang Walking Street Krabi',ll:[8.0325,98.8225]}],
+   tline:'Speedboot Ao Nang (Nopparat Thara Pier) → Koh Yao Noi · 21.01. · ~35–60 Min (~650 THB)',tlink:'https://www.phuketferry.com/route-koh-yao-noi-railay.html'},
   {emoji:'🛶',days:'Tag 19–26 · 21.–28.01.',name:'Koh Yao Noi',loc:[8.1051,98.5915],beach:true,scene:'island',
    note:'7 Nächte — eine ganze Woche Insel, ruhigster Teil der Reise',
    hotels:[
@@ -1477,12 +1477,12 @@ const plans={
     ,['Tag 12 · 14.01.','Grand Palace + Wat Pho früh, Wat Arun zum Sonnenuntergang']
     ,['Tag 13 · 15.01.','Chao-Phraya-Boot, Jim Thompson House, abends Nachtmarkt']
     ,['Tag 14 · 16.01.','Früh zum Flughafen — Morgenflug nach Krabi']],
-  '8.0084,98.8375':[['Tag 14 · 16.01.','Flug nach Krabi, Transfer nach Railay, Strandabend']
-    ,['Tag 15 · 17.01.','Phra Nang Cave Beach, baden, Sonnenuntergang an Railay West']
+  '8.032,98.822':[['Tag 14 · 16.01.','Flug nach Krabi, Transfer nach Ao Nang (~30 Min), Strandabend']
+    ,['Tag 15 · 17.01.','Longtail nach Railay & Phra Nang Cave Beach']
     ,['Tag 16 · 18.01.','Four-Island-Tour mit Schnorcheln']
-    ,['Tag 17 · 19.01.','Strandtag, Massage, abends per Boot nach Ao Nang']
+    ,['Tag 17 · 19.01.','Strandtag am Nopparat Thara, Massage, abends Walking Street']
     ,['Tag 18 · 20.01.','Hong-Islands-Bootstour']
-    ,['Tag 19 · 21.01.','Speedboot nach Koh Yao Noi']],
+    ,['Tag 19 · 21.01.','Speedboot ab Nopparat Thara Pier nach Koh Yao Noi']],
   '8.1051,98.5915':[['Tag 19 · 21.01.','Überfahrt, Resort beziehen']
     ,['Tag 20 · 22.01.','Mangroven-Kajaktour mit Lunch']
     ,['Tag 21 · 23.01.','Roller-Tour, Tabeak Viewpoint zum Sonnenaufgang']
