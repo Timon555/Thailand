@@ -170,7 +170,7 @@ def nights_of(s):
 
 parts = []
 parts.append(u'<div class="cover">')
-parts.append(u'<div class="cover-eyebrow">Zürich · Phuket · Chiang Mai · Bangkok · Krabi · Koh Yao Noi</div>')
+parts.append(u'<div class="cover-eyebrow">Zürich · Phuket · Chiang Mai · Bangkok · Krabi · Koh Phi Phi</div>')
 parts.append(u'<h1>Dreissig Tage <em>Thailand</em></h1>')
 parts.append(u'<div class="cover-dates">3. Januar &ndash; 1. Februar 2027 &nbsp;·&nbsp; Reiseprogramm für zwei</div>')
 parts.append(u'<div class="facts">'
