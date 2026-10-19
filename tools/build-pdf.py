@@ -176,7 +176,7 @@ parts.append(u'<div class="cover-dates">3. Januar &ndash; 1. Februar 2027 &nbsp;
 parts.append(u'<div class="facts">'
     u'<div class="fact"><div class="n">30</div><div class="l">Tage</div></div>'
     u'<div class="fact"><div class="n">5</div><div class="l">Regionen</div></div>'
-    u'<div class="fact"><div class="n">28</div><div class="l">Hotelnächte</div></div>'
+    u'<div class="fact"><div class="n">28</div><div class="l">Nächte in Thailand</div></div>'
     u'<div class="fact"><div class="n">1</div><div class="l">Nachtzug</div></div>'
     u'<div class="fact"><div class="n">3</div><div class="l">Flüge</div></div>'
     u'</div>')
@@ -275,7 +275,7 @@ for b in info:
                     u''.join(u'<li>%s</li>' % it for it in b['items'])))
 parts.append(u'</section>')
 
-parts.append(u'<div class="foot">Reiseprogramm Thailand · 3. Januar – 1. Februar 2027 · '
+parts.append(u'<div class="foot">Reiseprogramm Thailand · 3. Januar – 1. Februar 2027 · Ankunft 04.01., 28 Nächte im Land · '
              u'Stand 29.08.2026 · Angaben zu Einreise & Gesundheit vor Abreise auf eda.admin.ch prüfen</div>')
 
 doc = (u'<!doctype html><html lang="de"><head><meta charset="utf-8">'
