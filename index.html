@@ -1176,7 +1176,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
           <p style="opacity:.7;font-size:.86rem;margin-bottom:.8rem">Trage beim Buchen eure echten Preise ein — Summe & Diagramm rechnen sich live. Werte für 2 Personen.</p>
           <div class="brow"><i class="bdot" style="background:#e8794a"></i><label>✈️ Flüge (ZRH 2'400 + Krabi 150, Chiang Mai offen)</label><input type="number" data-cost data-cat="Flüge" value="2550"></div>
           <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (20 von 27 Nächten gebucht: CHF 2'251)</label><input type="number" data-cost data-cat="Hotels" value="3450"></div>
-          <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport (Nachtzug 120 + Fähren)</label><input type="number" data-cost data-cat="Transport" value="345"></div>
+          <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport (Nachtzug 120 gebucht · Fähren offen)</label><input type="number" data-cost data-cat="Transport" value="345"></div>
           <div class="brow"><i class="bdot" style="background:#14a098"></i><label>🎟️ Aktivitäten & Touren</label><input type="number" data-cost data-cat="Aktivitäten" value="470"></div>
           <div class="brow"><i class="bdot" style="background:#f2a07a"></i><label>🍜 Essen & Trinken</label><input type="number" data-cost data-cat="Essen" value="1500"></div>
           <div class="brow"><i class="bdot" style="background:#9ec5c3"></i><label>🎒 Puffer / Sonstiges</label><input type="number" data-cost data-cat="Puffer" value="665"></div>
@@ -1273,7 +1273,7 @@ const stops = [
      {t:'Thai-Kochkurs mit Marktbesuch',q:'Thai cooking class Chiang Mai',ll:[18.7880,98.9930]},
      {t:'Tagesausflug Doi Inthanon — höchster Berg Thailands, Aussicht und Wasserfälle direkt an der Strasse',q:'Doi Inthanon National Park',ll:[18.5885,98.4867]},
      {t:'Old City & Nachtmarkt — schlendern, Streetfood',q:'Chiang Mai old city night market',ll:[18.7870,98.9935]}],
-   tline:'Nachtzug #9 · Chiang Mai → Ayutthaya · 12.01. ab ~18:00 · ~12 Std, Ankunft früh am 13.01. · CHF 120',tlink:'https://12go.asia/'},
+   tline:'Nachtzug #9 · Chiang Mai → Ayutthaya · 12.01. ab ~18:00 · ~12 Std, Ankunft früh am 13.01. · CHF 120, gebucht',tlink:'https://12go.asia/'},
   {emoji:'🏯',days:'Tag 11 · 13.01. Vormittag',name:'Ayutthaya',loc:[14.3569,100.5675],scene:'ruins',
    note:'Tagesstopp nach der Zugnacht — Gepäck am Bahnhof einschliessen (Schliessfach)',
    acts:[
@@ -1307,7 +1307,7 @@ const stops = [
      {t:'Four-Island-Tour ab Nopparat Thara — Chicken Island, Poda, Tup mit Sandbank',q:'Four Island Tour Ao Nang Krabi',ll:[7.9500,98.8200]},
      {t:'Emerald Pool & heisse Quellen — 1,4 km Holzsteg, danach baden (~1 Std Fahrt)',q:'Emerald Pool Krabi Sa Morakot',ll:[7.9230,99.2680]},
      {t:'Krabi Walking Street — Markt am Wochenende, Streetfood und Musik',q:'Krabi Walking Street night market',ll:[8.0640,98.9180]}],
-   tline:'Krabi Town → Koh Lanta · 20.01. · Fähre ab Klong Jilad Pier (~3 km südlich der Stadt) direkt nach Saladan, ~70 Min — Alternative: Minivan + Autofähre ~2,5–3,5 Std',tlink:'https://www.ferryscanner.com/en/ferry-routes/ferry-klong-jilad-pier-krabi-town-saladan-pier-koh-lanta'},
+   tline:'Krabi Town → Koh Lanta · 20.01. · Fähre ab Klong Jilad Pier (~3 km südlich der Stadt) nach Saladan · ~400–500 THB p.P. · noch zu buchen',tlink:'https://www.ferryscanner.com/en/ferry-routes/ferry-klong-jilad-pier-krabi-town-saladan-pier-koh-lanta'},
   {emoji:'🌴',days:'Tag 18–23 · 20.–25.01.',name:'Koh Lanta — Klong Dao',loc:[7.618,99.032],beach:true,scene:'island',
    note:'5 Nächte im Jai Tiki Retreat am Klong Dao, gebucht. Nur Phra Ae (Long Beach) und Klong Dao sind zu jeder Tide schwimmbar — und eure Tage fallen auf den Supermond-Vollmond vom 22.01., also den grössten Tidenhub des Monats — am Klong Dao ist das egal. Kilometerlang und flach, Strandrestaurants und -bars entlang der Küste, Sonnenuntergang übers Meer, keine Partyszene',
    hotels:[
@@ -1319,7 +1319,7 @@ const stops = [
      {t:'Lanta Old Town — Holzhäuser auf Stelzen über dem Wasser, Seafood am Steg',q:'Lanta Old Town',ll:[7.5280,99.0860]},
      {t:'Mangroven-Longtail-Tour mit Guide und Lunch (~5 Std)',q:'Koh Lanta mangrove longtail tour',ll:[7.5600,99.0800]},
      {t:'Mit dem Roller die flache Insel erkunden, Strandbars am Abend',q:'Koh Lanta beach bar',ll:[7.6100,99.0300]}],
-   tline:'Fähre Koh Lanta (Saladan) → Phuket · 25.01. · erste Abfahrt ~08:00, Pier 5–10 Min vom Hotel · ~2–4 Std, je nach Anbieter mit Umstieg auf Phi Phi',tlink:'https://www.phuketferry.com/route-koh-lanta-phuket.html'},
+   tline:'Fähre Koh Lanta (Saladan) → Phuket · 25.01. · erste Abfahrt ~08:00, Pier 5–10 Min vom Hotel · ~900–1\'200 THB p.P., meist über Phi Phi · noch zu buchen',tlink:'https://www.phuketferry.com/route-koh-lanta-phuket.html'},
   {emoji:'🌅',days:'Tag 23–30 · 25.01.–01.02.',name:'Phuket — Kata & Karon',loc:[7.8158,98.3004],beach:true,scene:'sunset',
    note:'7 Nächte im Strandresort — einmal auspacken, dann nur noch geniessen. Beim Buchen auf Hanglage achten: mehrere Häuser hier liegen am Berg und fahren den Shuttle nur bis 19 Uhr. Breiter Sandstrand, zu jeder Tide schwimmbar, ~45 Min zum Flughafen. Altstadt, Phang-Nga-Bucht und Koh Racha macht ihr von hier als Tagesausflüge',
    hotels:[
