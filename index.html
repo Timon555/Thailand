@@ -1175,9 +1175,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div class="budget-card">
           <p style="opacity:.7;font-size:.86rem;margin-bottom:.8rem">Trage beim Buchen eure echten Preise ein — Summe & Diagramm rechnen sich live. Werte für 2 Personen.</p>
           <div class="brow"><i class="bdot" style="background:#e8794a"></i><label>✈️ Flüge (ZRH 2'400 + Chiang Mai 250 + Krabi 150 — alle gebucht)</label><input type="number" data-cost data-cat="Flüge" value="2800"></div>
-          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (CHF 2'251 gebucht + 5 N Karon + 2 N Old Town)</label><input type="number" data-cost data-cat="Hotels" value="2820"></div>
+          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (CHF 2'251 gebucht + 7 N Old Town à ~85)</label><input type="number" data-cost data-cat="Hotels" value="2850"></div>
           <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport (Nachtzug 120 gebucht · Fähren offen)</label><input type="number" data-cost data-cat="Transport" value="345"></div>
-          <div class="brow"><i class="bdot" style="background:#14a098"></i><label>🎟️ Aktivitäten (inkl. Koch- und Massagekurs, Elefanten)</label><input type="number" data-cost data-cat="Aktivitäten" value="750"></div>
+          <div class="brow"><i class="bdot" style="background:#14a098"></i><label>🎟️ Aktivitäten (4 Kurse, Elefanten, 4 Bootstouren)</label><input type="number" data-cost data-cat="Aktivitäten" value="950"></div>
           <div class="brow"><i class="bdot" style="background:#f2a07a"></i><label>🍜 Essen & Trinken</label><input type="number" data-cost data-cat="Essen" value="1500"></div>
           <div class="brow"><i class="bdot" style="background:#9ec5c3"></i><label>🎒 Puffer / Sonstiges</label><input type="number" data-cost data-cat="Puffer" value="665"></div>
           <div class="btotal"><span class="lbl">Gesamt für beide</span><span class="amt" id="total">CHF 0</span></div>
@@ -1322,37 +1322,26 @@ const stops = [
      {t:'Lanta Old Town — Holzhäuser auf Stelzen über dem Wasser, Seafood am Steg',q:'Lanta Old Town',ll:[7.5280,99.0860]},
      {t:'Mangroven-Longtail-Tour mit Guide und Lunch (~5 Std)',q:'Koh Lanta mangrove longtail tour',ll:[7.5600,99.0800]},
      {t:'Mit dem Roller die flache Insel erkunden, Strandbars am Abend',q:'Koh Lanta beach bar',ll:[7.6100,99.0300]}],
-   tline:'Fähre Koh Lanta (Saladan) → Phuket · 25.01. · erste Abfahrt ~08:00, Pier 5–10 Min vom Hotel · ~900–1\'200 THB p.P., meist über Phi Phi · noch zu buchen',tlink:'https://www.phuketferry.com/route-koh-lanta-phuket.html'},
-  {emoji:'🌅',days:'Tag 23–28 · 25.–30.01.',name:'Phuket — Karon',loc:[7.8158,98.3004],beach:true,scene:'sunset',
-   note:'5 Nächte am Strand, Budget max. CHF 100/Nacht (≈ 4\'100 THB) — dafür gibt es in der Hochsaison solide 3-Sterne-Häuser mit Pool 5–10 Min vom Strand, aber nichts direkt am Sand. Karon ist flacher und etwas günstiger als Kata: dort auf Hanglage achten, mehrere günstige Häuser liegen am Berg und fahren den Shuttle nur bis 19 Uhr. Breiter Sandstrand, zu jeder Tide schwimmbar. Phang-Nga-Bucht und Koh Racha macht ihr von hier als Tagesausflüge',
+   tline:'Fähre Koh Lanta (Saladan) → Phuket · 25.01. · erste Abfahrt ~08:00, Pier 5–10 Min vom Hotel · ~900–1\'200 THB p.P., meist über Phi Phi · Ankunft am Rassada Pier, 10 Min in die Altstadt · noch zu buchen',tlink:'https://www.phuketferry.com/route-koh-lanta-phuket.html'},
+  {emoji:'🏮',days:'Tag 23–30 · 25.01.–01.02.',name:'Phuket — Old Town',loc:[7.8843,98.3878],scene:'city',
+   note:'7 Nächte in der sino-portugiesischen Altstadt — einmal auspacken, Kurse und Bootstouren von hier aus. Die Boote fahren alle von der Ostseite: Rassada Pier 10 Min, Chalong 20, Ao Po für die Phang-Nga-Bucht 30 — ab Karon wäre jeder Bootstag ein Minibus quer über die Insel. Flughafen ~30 Min. Alles flach und zu Fuss, bestes Essen der Insel. Aber: kein Strand in Gehweite, baden heißt 35 Min Fahrt — darum ein Hotel mit Pool nehmen. Mo–Do ist es still, Fr–So lebendig, und der Lard Yai Walking Street fällt auf Sonntag, 31.01.',
    hotels:[
-     {n:'Kata Poolside Resort · 8.4 (823) — flach an der Kata Road, Pool, ~5 Min zum Strand · ~CHF 60–80',r:'4.2',q:'Kata Poolside Resort Phuket',ll:[7.8190,98.2990]},
-     {n:'KK Karon Kata Boutique Hotel · 8.8 (117) — Dachpool, zwischen Kata und Karon · ~CHF 60–90',r:'4.4',q:'KK Karon Kata Boutique Hotel',ll:[7.8290,98.2970]},
-     {n:'Kata Palm Resort — zwei grosse Pools, 5 Min flach zum Strand · ~CHF 80–110',r:'4.1',q:'Kata Palm Resort Phuket',ll:[7.8205,98.2985]},
-     {n:'Phuket Emerald Beach Resort · 4.7 (2\'500) — Karon, Frühstück inkl., Strandzugang · ~CHF 100–140, grenzwertig',r:'4.7',q:'Phuket Emerald Beach Resort Karon',ll:[7.8480,98.2960]},
-     {n:'Nicht buchen: Peach Hill, Sugar Palm Grand Hillside — günstig, aber am Steilhang',r:'4.0',q:'Peach Hill Hotel Resort Kata Phuket',ll:[7.8130,98.3060]}],
-   acts:[
-     {t:'Kata & Kata Noi Beach — baden, Sonnenuntergang vom Strand',q:'Kata Noi Beach Phuket',ll:[7.8120,98.2980]},
-     {t:'Bootstour Phang Nga Bay / James Bond Island — Kanufahren in den Höhlen',q:'James Bond Island Phang Nga Bay tour',ll:[8.2742,98.5050]},
-     {t:'Schnorcheltour nach Koh Racha Yai — klarstes Wasser der Gegend',q:'Koh Racha Yai snorkeling tour Phuket',ll:[7.6050,98.3650]},
-     {t:'Nai Harn & Ya Nui Beach — ruhiger, per Taxi in 20 Min',q:'Nai Harn Beach Phuket',ll:[7.7770,98.3030]},
-     {t:'Freedom Beach per Longtail — nur vom Wasser erreichbar',q:'Freedom Beach Phuket',ll:[7.8690,98.2770]},
-     {t:'Thai-Massage am Strand — 300–500 THB die Stunde, im Hotel oder in den Shops an der Karon Road',q:'Thai massage Karon Beach',ll:[7.8460,98.2960]},
-     {t:'Seafood am Strand, Sonnenuntergang vom Karon Viewpoint (per Grab, keine Wanderung)',q:'Karon Viewpoint Phuket',ll:[7.7940,98.3060]}],
-   tline:'Karon → Phuket Old Town · 30.01. · ~30 Min mit dem Grab (~500–700 THB)',tlink:'https://www.grab.com/th/en/'},
-  {emoji:'🏮',days:'Tag 28–30 · 30.01.–01.02.',name:'Phuket — Old Town',loc:[7.8843,98.3878],scene:'city',
-   note:'2 Nächte zum Abschluss — sino-portugiesische Altstadt, alles flach und zu Fuss. Der Lard Yai Walking Street fällt genau auf Sonntag, 31.01. (16–22 Uhr), das ist der beste Abend, den Phuket Town hat. Zum Flughafen nur ~30 Min statt 60 ab Karon — am Abreisetag angenehm. Hotels hier kosten 30–50 % weniger als an der Westküste',
-   hotels:[
-     {n:'Arco Hotel Phuket Town — hattest du selbst gefunden, ruhig und zentral · ~CHF 45–65',r:'4.5',q:'Arco Hotel Phuket Town',ll:[7.8820,98.3900]},
-     {n:'The Memory at On On Hotel — das Haus aus „The Beach“, mitten an der Thalang Road · ~CHF 50–75',r:'4.4',q:'The Memory at On On Hotel Phuket',ll:[7.8838,98.3885]},
-     {n:'Casa Blanca Boutique Hotel — Kolonialvilla mit Pool, Phang Nga Road · ~CHF 70–95',r:'4.5',q:'Casa Blanca Boutique Hotel Phuket',ll:[7.8847,98.3874]},
-     {n:'Sino House Phuket Hotel — grösser, Pool und Spa, 10 Min zu Fuss in die Altstadt · ~CHF 55–80',r:'4.3',q:'Sino House Phuket Hotel',ll:[7.8880,98.3870]}],
+     {n:'Casa Blanca Boutique Hotel · 4.5 (587) — Erste Wahl: Pool im Obergeschoss, Kolonialvilla an der Phang Nga Road · ~CHF 70–95',r:'4.5',q:'Casa Blanca Boutique Hotel Phuket',ll:[7.8847,98.3874]},
+     {n:'Sino House Phuket Hotel — Pool und Spa, 57 Zimmer an der Montree Road, 10 Min zu Fuss in die Altstadt · ~CHF 55–80',r:'4.3',q:'Sino House Phuket Hotel',ll:[7.8880,98.3870]},
+     {n:'Arco Hotel Phuket Town — hattest du selbst gefunden, Pool gelistet, aber nur ~76 Bewertungen · ~CHF 45–65',r:'4.5',q:'Arco Hotel Phuket Town',ll:[7.8820,98.3900]},
+     {n:'The Memory at On On — schön und historisch, aber OHNE Pool: für 7 Nächte ohne Strand die falsche Wahl',r:'4.4',q:'The Memory at On On Hotel Phuket',ll:[7.8838,98.3885]}],
    acts:[
      {t:'Lard Yai Sunday Walking Street — Sonntag 31.01., 16–22 Uhr, Thalang Road',q:'Phuket Walking Street Lard Yai',ll:[7.8846,98.3884]},
      {t:'Thalang Road & Soi Romanee — Shophouse-Fassaden, Cafés, alles flach',q:'Soi Romanee Phuket Old Town',ll:[7.8843,98.3878]},
      {t:'Streetart-Rundgang — Murals an der Phang Nga, Dibuk und Krabi Road',q:'Phuket Old Town street art',ll:[7.8850,98.3865]},
      {t:'Thai Hua Museum & Baan Chinpracha — sino-portugiesische Villen von innen',q:'Thai Hua Museum Phuket',ll:[7.8852,98.3871]},
-     {t:'Thai-Kochkurs in der Altstadt — halbtags mit Marktbesuch',q:'Thai cooking class Phuket Old Town',ll:[7.8840,98.3880]},
+     {t:'Kochkurs Blue Elephant — in der restaurierten Chinpracha-Villa an der Krabi Road, 4.9 bei 1\'000+ Buchungen · ~CHF 118 p.P., das Premium-Erlebnis',q:'Blue Elephant Cooking School Phuket Krabi Road',ll:[7.8832,98.3855]},
+     {t:'Kochkurs günstiger — Kanta Phuket oder ein Familienkurs 5 Min ausserhalb, halbtags mit Marktbesuch · ~CHF 50–80 p.P.',q:'Kanta Phuket Cooking Class Old Town',ll:[7.8840,98.3880]},
+     {t:'Batik-Workshop — 3 Std, eigenes Tuch färben · ab ~CHF 57 p.P. (Ort vor Ort bestätigen)',q:'Phuket batik workshop',ll:[7.8845,98.3870]},
+     {t:'Thai-Massage-Kurs — 1-Tages-Kurs ab ~CHF 71 p.P. (nicht in der Altstadt, Transfer nötig)',q:'1 Day Thai Massage Course Phuket',ll:[7.8800,98.3400]},
+     {t:'Bootstour Phang Nga Bay / James Bond Island — ab Ao Po, ~30 Min von hier',q:'James Bond Island Phang Nga Bay tour',ll:[8.2742,98.5050]},
+     {t:'Schnorcheltour Koh Racha Yai — ab Chalong Pier, ~20 Min von hier',q:'Koh Racha Yai snorkeling tour Phuket',ll:[7.6050,98.3650]},
+     {t:'Strandtag per Grab — Kata/Karon ~35 Min, Nai Harn & Ya Nui ~35 Min, ~600 THB hin und zurück',q:'Nai Harn Beach Phuket',ll:[7.7770,98.3030]},
      {t:'Khao Rang Viewpoint — Blick über die Stadt, Zufahrt per Grab, kein Aufstieg',q:'Khao Rang Viewpoint Phuket',ll:[7.8930,98.3760]},
      {t:'Big Buddha — ~30 Min per Grab, Zufahrt bis oben',q:'Big Buddha Phuket',ll:[7.8277,98.3125]},
      {t:'Chillva Market — Nachtmarkt mit Containerständen und Livemusik',q:'Chillva Market Phuket',ll:[7.9020,98.3880]}],
@@ -1523,15 +1512,14 @@ const plans={
     ,['Tag 21 · 23.01.','Tagesausflug Koh Phi Phi — Maya Bay, Pileh Lagoon, Bamboo Island (Alternative: Koh Rok)']
     ,['Tag 22 · 24.01.','Roller nach Lanta Old Town, Seafood auf Stelzen']
     ,['Tag 23 · 25.01.','Frühe Fähre nach Phuket (~08:00), Resort beziehen']],
-  '7.8158,98.3004':[['Tag 23 · 25.01.','Frühe Fähre ab Lanta (~08:00), Hotel beziehen, Füsse in den Sand']
-    ,['Tag 24 · 26.01.','Ankommen: Karon & Kata Noi, Massage am Strand']
-    ,['Tag 25 · 27.01.','Bootstour Phang Nga Bay / James Bond Island']
-    ,['Tag 26 · 28.01.','Schnorcheltour nach Koh Racha Yai']
-    ,['Tag 27 · 29.01.','Nai Harn & Ya Nui, Freedom Beach — letzter Strandtag']
-    ,['Tag 28 · 30.01.','Vormittag am Strand, mittags Grab in die Altstadt (~30 Min)']],
-  '7.8843,98.3878':[['Tag 28 · 30.01.','Ankunft Old Town, Thalang Road und Soi Romanee, Abendessen im Shophouse-Viertel']
-    ,['Tag 29 · 31.01.','Kochkurs oder Streetart-Rundgang, Thai Hua Museum — abends Lard Yai Walking Street (16–22 Uhr)']
-    ,['Tag 30 · 01.02.','Letzter Kaffee an der Thalang Road, Flughafen ~30 Min, Heimflug nach Zürich']]
+  '7.8843,98.3878':[['Tag 23 · Mo 25.01.','Fähre ab Lanta kommt am Rassada Pier an — nur 10 Min in die Altstadt. Hotel beziehen, abends Thalang Road']
+    ,['Tag 24 · Di 26.01.','Kochkurs halbtags mit Marktbesuch, nachmittags Streetart-Rundgang']
+    ,['Tag 25 · Mi 27.01.','Bootstour Phang Nga Bay / James Bond Island (ab Ao Po, ~30 Min)']
+    ,['Tag 26 · Do 28.01.','Batik-Workshop oder Massage-Kurs, Thai Hua Museum, Khao Rang zum Sonnenuntergang']
+    ,['Tag 27 · Fr 29.01.','Strandtag Kata/Karon oder Nai Harn per Grab — abends ist die Thalang Road lebendig']
+    ,['Tag 28 · Sa 30.01.','Schnorcheltour Koh Racha Yai ab Chalong, abends Chillva Market']
+    ,['Tag 29 · So 31.01.','Big Buddha am Morgen — abends Lard Yai Walking Street (16–22 Uhr)']
+    ,['Tag 30 · Mo 01.02.','Letzter Kaffee an der Thalang Road, Flughafen ~30 Min, Heimflug nach Zürich']]
 };
 function planKey(s){
   if(s.scene==='beach') return '7.8925,98.2986|patong';
