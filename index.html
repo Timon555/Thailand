@@ -1209,9 +1209,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="tips-grid">
       <div class="tip"><h3>Edelweiss-Flüge</h3><p>Zürich↔Phuket buchen, sobald der Winterflugplan 2026/27 erscheint.</p></div>
       <div class="tip"><h3>Nachtzug #9 · 12.01.</h3><p>Untere Betten gehen Wochen vorher weg — über 12Go Asia oder thailandtrain.org.</p></div>
-      <div class="tip"><h3>Koh Lanta · 5 Nächte</h3><p>Am Phra Ae buchen, nicht an Klong Nin oder Klong Khong — nur dort ist der Strand zu jeder Tide schwimmbar.</p></div>
+      <div class="tip"><h3>Jai Tiki Retreat · gebucht</h3><p>20.–25.01. am Klong Dao, direkt beim Hafen — die Frühfähre am 25.01. ist 5–10 Min entfernt.</p></div>
       <div class="tip"><h3>Inlandflüge</h3><p>07.01. Phuket → Chiang Mai um 18:15 Uhr; 17.01. morgens Bangkok → Krabi.</p></div>
-      <div class="tip"><h3>Ao Nang · 2 Nächte</h3><p>Nur ein voller Tag — Railay-Tour am 18.01. vorab organisieren, nicht erst vor Ort.</p></div>
+      <div class="tip"><h3>Krabi Town · 3 Nächte</h3><p>Kein Strandort — für Railay und die Bootstouren jeweils ~30 Min Songthaew nach Ao Nang einplanen.</p></div>
     </div>
   </div>
 </section>
@@ -1299,27 +1299,24 @@ const stops = [
      {t:'Bang Krachao — »grüne Lunge«, flache Stege, Velo mieten',q:'Bang Krachao Bangkok',ll:[13.6880,100.5560]},
      {t:'Talad Rot Fai Ratchada — Nachtmarkt mit Streetfood',q:'Talad Rot Fai Ratchada night market',ll:[13.7668,100.5395]}],
    tline:'Flug Bangkok (BKK) → Krabi · 17.01. morgens · ~1h20 · zum Flughafen: Grab 40–60 Min (400–500 THB) oder MRT + Airport Rail Link ~60 Min',tlink:'https://www.skyscanner.ch/'},
-  {emoji:'⛵',days:'Tag 15–17 · 17.–19.01.',name:'Krabi — Ao Nang',loc:[8.0320,98.8220],beach:true,scene:'islands',
-   note:'2 Nächte im Hauptort von Krabi, also ein voller Tag — der gehört Railay und Phra Nang. Die Four-Island-Tour und der Emerald Pool fallen weg. Restaurants, Nachtmarkt und Massage zu Fuss, Longtails nach Railay und Phra Nang in 10 Min. Vom Flughafen Krabi Van oder Taxi, ~30 Min',
+  {emoji:'⛵',days:'Tag 15–18 · 17.–20.01.',name:'Krabi Town',loc:[8.0863,98.9063],scene:'city',
+   note:'3 Nächte in der Flussstadt — günstig, authentisch, guter Nachtmarkt am Chao Fah Pier. Kein Strandort: nach Ao Nang sind es ~30 Min mit dem Songthaew, dorthin fahrt ihr für Railay und die Bootstouren',
    hotels:[
-     {n:'Aonang Villa Resort',r:'4.3',q:'Aonang Villa Resort Krabi',ll:[8.0310,98.8208]},
-     {n:'Centara Ao Nang Beach Resort & Spa',r:'4.3',q:'Centara Ao Nang Beach Resort and Spa Krabi',ll:[8.0255,98.8188]},
-     {n:'Ao Nang Cliff Beach Resort',r:'4.3',q:'Ao Nang Cliff Beach Resort Krabi',ll:[8.0338,98.8243]}],
+     {n:'Family Tree Hotel — bestbewertet in der Stadt · 4.7 (117) / 9.2 (719)',r:'4.7',q:'Family Tree Hotel Krabi Town',ll:[8.0680,98.9170]},
+     {n:'Siri Krabi · 8.6 (148)',q:'Siri Krabi Hotel Krabi Town',ll:[8.0700,98.9150]},
+     {n:'Krabi River Hotel · 4.3 (199), günstig',q:'Krabi River Hotel Krabi Town',ll:[8.0730,98.9190]}],
    acts:[
-     {t:'Phra Nang Cave Beach — 10 Min per Longtail, gilt vielen als schönster Strand Thailands',q:'Phra Nang Cave Beach Railay',ll:[8.0070,98.8299]},
-     {t:'Railay West — Tagesausflug per Longtail, baden und Sonnenuntergang',q:'Railay West Beach',ll:[8.0106,98.8355]},
-     {t:'Four-Island-Tour — Chicken Island, Poda, Tup mit Sandbank',q:'Four Island Tour Ao Nang Krabi',ll:[7.9500,98.8200]},
-     {t:'Hong-Islands-Tour — türkise Lagune, Schnorcheln',q:'Hong Island Krabi tour',ll:[8.0870,98.7050]},
-     {t:'Monkey Trail — 15 Min flacher Felsenweg nach Pai Plong Beach (Affen: kein Essen zeigen)',q:'Monkey Trail Ao Nang Pai Plong',ll:[8.0280,98.8170]},
-     {t:'Tha Pom Klong Song Nam — 1 km Holzsteg durch Mangroven und glasklares Quellwasser, flach',q:'Tha Pom Klong Song Nam Krabi',ll:[8.2185,98.7600]},
-     {t:'Emerald Pool & heisse Quellen — 1,4 km Holzsteg im Wald, danach baden',q:'Emerald Pool Krabi Sa Morakot',ll:[7.9230,99.2680]},
-     {t:'Nopparat Thara Beach — langer, flacher Strandspaziergang gleich nebenan',q:'Nopparat Thara Beach Krabi',ll:[8.0395,98.8060]},
-     {t:'Ao Nang Walking Street & Seafood am Strand',q:'Ao Nang Walking Street Krabi',ll:[8.0325,98.8225]}],
-   tline:'Ao Nang → Koh Lanta · 19.01. · Van und Fähre · ~2–3 Std, Ankunft in Saladan',tlink:'https://12go.asia/en/travel/ao-nang/koh-lanta'},
-  {emoji:'🌴',days:'Tag 17–22 · 19.–24.01.',name:'Koh Lanta — Phra Ae',loc:[7.618,99.032],beach:true,scene:'island',
-   note:'5 Nächte im Norden der Insel. Nur Phra Ae (Long Beach) und Klong Dao sind zu jeder Tide schwimmbar — und eure Tage fallen auf den Supermond-Vollmond vom 22.01., also den grössten Tidenhub des Monats. Kilometerlang und flach, Strandrestaurants und -bars entlang der Küste, Sonnenuntergang übers Meer, keine Partyszene',
+     {t:'Nachtmarkt am Chao Fah Pier — Garküchen am Fluss, jeden Abend',q:'Chao Fah Pier Night Market Krabi',ll:[8.0620,98.9170]},
+     {t:'Khao Khanab Nam — Longtail zu den Zwillingsfelsen an der Flussmündung, flacher Weg',q:'Khao Khanab Nam Krabi',ll:[8.0870,98.9050]},
+     {t:'Tagesausflug Ao Nang & Railay — Songthaew ~30 Min, dann Longtail zum Phra Nang Cave Beach',q:'Phra Nang Cave Beach Railay',ll:[8.0070,98.8299]},
+     {t:'Four-Island-Tour ab Nopparat Thara — Chicken Island, Poda, Tup mit Sandbank',q:'Four Island Tour Ao Nang Krabi',ll:[7.9500,98.8200]},
+     {t:'Emerald Pool & heisse Quellen — 1,4 km Holzsteg, danach baden (~1 Std Fahrt)',q:'Emerald Pool Krabi Sa Morakot',ll:[7.9230,99.2680]},
+     {t:'Krabi Walking Street — Markt am Wochenende, Streetfood und Musik',q:'Krabi Walking Street night market',ll:[8.0640,98.9180]}],
+   tline:'Krabi Town → Koh Lanta · 20.01. vormittags · Minivan + Autofähre ~2,5–3,5 Std, oder Speedboot ab Ao Nang ~1h10–1h50',tlink:'https://12go.asia/en/travel/krabi/koh-lanta'},
+  {emoji:'🌴',days:'Tag 18–23 · 20.–25.01.',name:'Koh Lanta — Klong Dao',loc:[7.618,99.032],beach:true,scene:'island',
+   note:'5 Nächte im Jai Tiki Retreat am Klong Dao, gebucht. Nur Phra Ae (Long Beach) und Klong Dao sind zu jeder Tide schwimmbar — und eure Tage fallen auf den Supermond-Vollmond vom 22.01., also den grössten Tidenhub des Monats — am Klong Dao ist das egal. Kilometerlang und flach, Strandrestaurants und -bars entlang der Küste, Sonnenuntergang übers Meer, keine Partyszene',
    hotels:[
-     {n:'Jai Tiki Retreat — Adults Only, Klong Dao, Infinity-Pool · 4.9 (186)',r:'4.9',q:'Jai Tiki Retreat Adult Only Koh Lanta',ll:[7.6400,99.0390]},
+     {n:'Jai Tiki Retreat · GEBUCHT — Adults Only, Klong Dao, Infinity-Pool · 4.9 (186)',r:'4.9',q:'Jai Tiki Retreat Adult Only Koh Lanta',ll:[7.6400,99.0390]},
      {n:'Lanta Pearl Beach Resort — 200 m zum Phra Ae, Pool, Sauberkeit 9.2 · 4.5 (709)',r:'4.5',q:'Lanta Pearl Beach Resort Koh Lanta',ll:[7.6200,99.0320]},
      {n:'Lanta Castaway Beach Resort — direkt am Phra Ae, kein Pool, viele Mücken · 4.7 (880)',r:'4.7',q:'Lanta Castaway Beach Resort Koh Lanta',ll:[7.6180,99.0310]},
      {n:'Lanta Smile Inn — 5–7 Min zum Strand, sehr gut bewertet · 9.3/10',q:'Lanta Smile Inn Koh Lanta',ll:[7.6260,99.0350]},
@@ -1333,9 +1330,9 @@ const stops = [
      {t:'Lanta Old Town — Holzhäuser auf Stelzen über dem Wasser, Seafood am Steg',q:'Lanta Old Town',ll:[7.5280,99.0860]},
      {t:'Mangroven-Longtail-Tour mit Guide und Lunch (~5 Std)',q:'Koh Lanta mangrove longtail tour',ll:[7.5600,99.0800]},
      {t:'Mit dem Roller die flache Insel erkunden, Strandbars am Abend',q:'Koh Lanta beach bar',ll:[7.6100,99.0300]}],
-   tline:'Fähre Koh Lanta (Saladan) → Phuket · 24.01. · erste Abfahrt ~08:00 · ~2–4 Std, je nach Anbieter mit Umstieg auf Phi Phi',tlink:'https://www.phuketferry.com/route-koh-lanta-phuket.html'},
-  {emoji:'🌅',days:'Tag 22–30 · 24.01.–01.02.',name:'Phuket — Kata & Karon',loc:[7.8158,98.3004],beach:true,scene:'sunset',
-   note:'8 Nächte im Strandresort — einmal auspacken, dann nur noch geniessen. Beim Buchen auf Hanglage achten: mehrere Häuser hier liegen am Berg und fahren den Shuttle nur bis 19 Uhr. Breiter Sandstrand, zu jeder Tide schwimmbar, ~45 Min zum Flughafen. Altstadt, Phang-Nga-Bucht und Koh Racha macht ihr von hier als Tagesausflüge',
+   tline:'Fähre Koh Lanta (Saladan) → Phuket · 25.01. · erste Abfahrt ~08:00, Pier 5–10 Min vom Hotel · ~2–4 Std, je nach Anbieter mit Umstieg auf Phi Phi',tlink:'https://www.phuketferry.com/route-koh-lanta-phuket.html'},
+  {emoji:'🌅',days:'Tag 23–30 · 25.01.–01.02.',name:'Phuket — Kata & Karon',loc:[7.8158,98.3004],beach:true,scene:'sunset',
+   note:'7 Nächte im Strandresort — einmal auspacken, dann nur noch geniessen. Beim Buchen auf Hanglage achten: mehrere Häuser hier liegen am Berg und fahren den Shuttle nur bis 19 Uhr. Breiter Sandstrand, zu jeder Tide schwimmbar, ~45 Min zum Flughafen. Altstadt, Phang-Nga-Bucht und Koh Racha macht ihr von hier als Tagesausflüge',
    hotels:[
      {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
      {n:'Avista Grande Karon — MGallery · 4.8 (3\'200), 3 Min flach zum Strand',r:'4.8',q:'Avista Grande Phuket Karon MGallery',ll:[7.8460,98.2970]},
@@ -1495,23 +1492,23 @@ const plans={
     ,['Tag 13 · 15.01.','Chao-Phraya-Boot, Jim Thompson House, abends Nachtmarkt']
     ,['Tag 14 · 16.01.','Chatuchak Weekend Market, nachmittags Khlong-Boot oder Bang Krachao']
     ,['Tag 15 · 17.01.','Morgenflug nach Krabi']],
-  '8.032,98.822':[['Tag 15 · 17.01.','Flug nach Krabi, Transfer nach Ao Nang (~30 Min), Strandabend']
-    ,['Tag 16 · 18.01.','Longtail nach Railay & Phra Nang Cave Beach, abends Walking Street']
-    ,['Tag 17 · 19.01.','Transfer zum Pier Klong Jilad, Fähre nach Koh Phi Phi']],
-  '7.618,99.032':[['Tag 17 · 19.01.','Überfahrt ab Ao Nang, einchecken, Sonnenuntergang am Strand']
-    ,['Tag 18 · 20.01.','Four-Islands-Tour mit der Emerald Cave']
-    ,['Tag 19 · 21.01.','Strandtag am Phra Ae, Massage']
-    ,['Tag 20 · 22.01.','Koh Rok — Schnorcheln an den Korallenriffen']
-    ,['Tag 21 · 23.01.','Roller nach Lanta Old Town, Seafood auf Stelzen']
-    ,['Tag 22 · 24.01.','Frühe Fähre nach Phuket (~08:00), Resort beziehen']],
-  '7.8158,98.3004':[['Tag 22 · 24.01.','Fähre ab Lanta, Resort beziehen, Füsse in den Sand']
-    ,['Tag 23 · 25.01.','Ankommen: Kata & Kata Noi, Massage']
-    ,['Tag 24 · 26.01.','Bootstour Phang Nga Bay / James Bond Island']
-    ,['Tag 25 · 27.01.','Strandtag, Karon Viewpoint']
+  '8.0863,98.9063':[['Tag 15 · 17.01.','Flug nach Krabi, Transfer in die Stadt (~20 Min), abends Nachtmarkt am Chao Fah Pier']
+    ,['Tag 16 · 18.01.','Tagesausflug Ao Nang & Railay — Longtail zum Phra Nang Cave Beach']
+    ,['Tag 17 · 19.01.','Four-Island-Tour oder Emerald Pool, abends Walking Street']
+    ,['Tag 18 · 20.01.','Khao Khanab Nam am Morgen, dann Transfer nach Koh Lanta']],
+  '7.618,99.032':[['Tag 18 · 20.01.','Überfahrt ab Krabi, Jai Tiki beziehen, Sonnenuntergang am Klong Dao']
+    ,['Tag 19 · 21.01.','Four-Islands-Tour mit der Emerald Cave']
+    ,['Tag 20 · 22.01.','Strandtag, Massage, abends Koala Bar oder Feuershow an der Indian Bar']
+    ,['Tag 21 · 23.01.','Koh Rok — Schnorcheln an den Korallenriffen']
+    ,['Tag 22 · 24.01.','Roller nach Lanta Old Town, Seafood auf Stelzen']
+    ,['Tag 23 · 25.01.','Frühe Fähre nach Phuket (~08:00), Resort beziehen']],
+  '7.8158,98.3004':[['Tag 23 · 25.01.','Fähre ab Lanta, Resort beziehen, Füsse in den Sand']
+    ,['Tag 24 · 26.01.','Ankommen: Kata & Kata Noi, Massage']
+    ,['Tag 25 · 27.01.','Bootstour Phang Nga Bay / James Bond Island']
     ,['Tag 26 · 28.01.','Schnorcheltour nach Koh Racha Yai']
     ,['Tag 27 · 29.01.','Nai Harn & Ya Nui, Windmill Viewpoint']
     ,['Tag 28 · 30.01.','Phuket Old Town — Soi Romanee, Streetart, Thai-Kochkurs']
-    ,['Tag 29 · 31.01.','Freedom Beach oder Strandtag — abends Lard Yai Walking Street (So)']
+    ,['Tag 29 · 31.01.','Strandtag oder Freedom Beach — abends Lard Yai Walking Street (So)']
     ,['Tag 30 · 01.02.','Heimflug nach Zürich']]
 };
 function planKey(s){
