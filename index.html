@@ -1361,6 +1361,28 @@ const stops = [
    tline:'Edelweiss WK51 Direktflug · Phuket → Zürich · ~11,5 Std · im Hinflugpreis enthalten',tlink:'https://www.flyedelweiss.com/'},
 ];
 
+// Fixkosten: gebuchte und offene Posten. Speist die Kostenseite im PDF
+// (tools/build-pdf.py) — ohne Ausgaben vor Ort, die stehen im Budget-Rechner oben.
+const costs = {
+  transport:[
+    {t:'Edelweiss WK50/WK51 · Zürich ⇄ Phuket',d:'03.01. / 01.02.',c:2400,s:'gebucht'},
+    {t:'Flug Phuket → Chiang Mai, 18:15',d:'07.01.',c:250,s:'gebucht'},
+    {t:'Nachtzug #9 · Chiang Mai → Ayutthaya',d:'12.01.',c:120,s:'gebucht'},
+    {t:'Zug Ayutthaya → Bangkok',d:'13.01.',c:5,s:'vor Ort'},
+    {t:'Flug Bangkok → Krabi',d:'17.01.',c:150,s:'gebucht'},
+    {t:'Fähre Krabi → Koh Lanta',d:'20.01.',c:22,s:'offen'},
+    {t:'Fähre Koh Lanta → Phuket',d:'25.01.',c:52,s:'offen'}],
+  hotels:[
+    {t:'ibis Styles Phuket Bangtao',d:'04.–07.01.',n:3,c:544,s:'gebucht'},
+    {t:'Pastell Oldtown Chiang Mai',d:'07.–12.01.',n:5,c:380.30,s:'gebucht'},
+    {t:'Nachtzug — keine Hotelnacht',d:'12.–13.01.',n:0,c:0,s:'—'},
+    {t:'Arte Hotel Bangkok',d:'13.–17.01.',n:4,c:179.04,s:'gebucht'},
+    {t:'The Brown Hotel Krabi',d:'17.–20.01.',n:3,c:122.25,s:'gebucht'},
+    {t:'Jai Tiki Retreat Koh Lanta',d:'20.–25.01.',n:5,c:1025,s:'gebucht'},
+    {t:'Novotel Phuket City · Ref. QSXSGNDL',d:'25.–31.01.',n:6,c:624.89,s:'gebucht'},
+    {t:'Flughafenhotel Phuket · Schätzung',d:'31.01.–01.02.',n:1,c:70,s:'offen'}]
+};
+
 const climate = [
   {region:'Phuket',rows:[['🌡️','29–32 °C tagsüber'],['🌧️','wenig Regen'],['🌊','29 °C Meer'],['☀️','Trockenzeit']]},
   {region:'Chiang Mai',rows:[['🌡️','28–31 °C tags'],['🌙','15–18 °C nachts'],['🌧️','sehr trocken'],['🌫️','klare Sicht']]},

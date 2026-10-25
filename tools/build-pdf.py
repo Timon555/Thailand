@@ -32,7 +32,9 @@ def extract_data():
     for name in ('const climate = [', 'const packing = [', 'const info = ['):
         i = js.index(name)
         out += js[i:js.index(chr(10) + '];', i) + 3] + chr(10)
-    out += 'console.log(JSON.stringify({stops,plans,climate,packing,info}));'
+    i = js.index('const costs = {')
+    out += js[i:js.index(chr(10) + '};', i) + 3] + chr(10)
+    out += 'console.log(JSON.stringify({stops,plans,climate,packing,info,costs}));'
     with tempfile.NamedTemporaryFile('w', suffix='.js', delete=False, encoding='utf-8') as f:
         f.write(out)
         tmp = f.name
@@ -44,6 +46,7 @@ def extract_data():
 
 d = extract_data()
 stops, plans, climate, packing, info = d['stops'], d['plans'], d['climate'], d['packing'], d['info']
+costs = d['costs']
 def plan_key(s):
     sc = s.get('scene')
     if sc == 'beach':   return '7.8925,98.2986|patong'
@@ -159,6 +162,27 @@ ul.acts li { margin-bottom:1.2mm; }
 .foot { margin-top:6mm; padding-top:2.5mm; border-top:.6pt solid #e0d6c6;
         font-size:7.6pt; color:#6b7a83; text-align:center; }
 .pb { page-break-before: always; }
+
+/* ---------- Kosten ---------- */
+table.cost { width:100%; border-collapse:collapse; font-size:8.8pt; margin-bottom:5mm; }
+table.cost caption { caption-side:top; text-align:left; font-size:7pt; letter-spacing:.16em;
+        text-transform:uppercase; color:#0d7377; font-weight:700; padding-bottom:1.6mm; }
+table.cost th { text-align:left; font-size:7pt; letter-spacing:.14em; text-transform:uppercase;
+        color:#6b7a83; font-weight:700; border-bottom:1.2pt solid #0d7377; padding:0 2mm 1.6mm 0; }
+table.cost td { padding:1.9mm 2mm 1.9mm 0; border-bottom:.5pt solid #e6ded1; }
+table.cost td.d { white-space:nowrap; color:#0d7377; font-weight:600; }
+table.cost td.n, table.cost th.n { text-align:center; width:12mm; }
+table.cost td.c, table.cost th.c { text-align:right; white-space:nowrap; width:22mm; }
+table.cost td.s { width:20mm; }
+table.cost tr.sum td { border-top:1.2pt solid #0d7377; border-bottom:none;
+        font-weight:700; padding-top:2.2mm; }
+.totals { border:.6pt solid #e0d6c6; border-radius:3mm; background:#fffdf9; padding:4mm 4.5mm; }
+.totals .row { display:flex; font-size:9.4pt; padding:1.5mm 0; border-bottom:.4pt dotted #e6ded1; }
+.totals .row:last-child { border-bottom:none; }
+.totals .row span:last-child { margin-left:auto; white-space:nowrap; font-weight:600; }
+.totals .row.big { font-family:Georgia,serif; font-size:12pt; border-top:1.2pt solid #0d7377;
+        border-bottom:none; margin-top:1.5mm; padding-top:2.5mm; }
+.totals .row.big span:last-child { color:#0d7377; }
 """
 
 def nights_of(s):
@@ -247,6 +271,46 @@ for s in stops:
         p.append(u'<div class="transfer">→ <b>Weiter:</b> %s</div>' % E(s['tline']))
     p.append(u'</div>')
     parts.append(u''.join(p))
+parts.append(u'</section>')
+
+# ---- Kosten ----
+def chf(x):
+    return format(x, ',.2f').replace(',', u'\u2019')
+
+def cost_table(cap, rows, with_nights):
+    o = [u'<table class="cost"><caption>%s</caption><thead><tr><th>Posten</th>'
+         u'<th style="width:26mm">Datum</th>%s<th class="c">CHF</th><th class="s">Status</th>'
+         u'</tr></thead><tbody>' % (E(cap), u'<th class="n">N</th>' if with_nights else u'')]
+    for r in rows:
+        n = (u'<td class="n">%s</td>' % (r.get('n') or u'\u2013')) if with_nights else u''
+        o.append(u'<tr><td>%s</td><td class="d">%s</td>%s<td class="c">%s</td>'
+                 u'<td class="s">%s</td></tr>'
+                 % (E(r['t']), E(r['d']), n, chf(r['c']) if r['c'] else u'\u2013', E(r['s'])))
+    tot = sum(r['c'] for r in rows)
+    nn = (u'<td class="n">%d</td>' % sum(r.get('n') or 0 for r in rows)) if with_nights else u''
+    o.append(u'<tr class="sum"><td>Zwischensumme</td><td></td>%s<td class="c">%s</td><td></td></tr>'
+             % (nn, chf(tot)))
+    o.append(u'</tbody></table>')
+    return u''.join(o)
+
+tr_rows, ho_rows = costs['transport'], costs['hotels']
+g = sum(r['c'] for r in tr_rows + ho_rows if r['s'] == 'gebucht')
+o_ = sum(r['c'] for r in tr_rows + ho_rows if r['s'] == 'offen')
+nights = sum(r.get('n') or 0 for r in ho_rows)
+
+parts.append(u'<section class="pb"><div class="sec-label">Was die Reise kostet</div>'
+             u'<h2 class="sec-title">Fixkosten</h2>')
+parts.append(u'<div class="note">Fl\u00fcge, Z\u00fcge, F\u00e4hren und alle %d Hotelnächte. '
+             u'Ohne Ausgaben vor Ort \u2014 Essen, Unternehmungen und Taxis sind hier nicht enthalten. '
+             u'Alle Betr\u00e4ge f\u00fcr zwei Personen.</div>' % nights)
+parts.append(cost_table(u'Verkehrsmittel', tr_rows, False))
+parts.append(cost_table(u'\u00dcbernachtungen', ho_rows, True))
+parts.append(u'<div class="totals">'
+             u'<div class="row"><span>Bereits gebucht und bezahlt</span><span>CHF %s</span></div>'
+             u'<div class="row"><span>Noch zu buchen (F\u00e4hren, Flughafenhotel)</span><span>CHF %s</span></div>'
+             u'<div class="row big"><span>Fixkosten total</span><span>CHF %s</span></div>'
+             u'<div class="row"><span>pro Person</span><span>CHF %s</span></div>'
+             u'</div>' % (chf(g), chf(o_), chf(g + o_), chf((g + o_) / 2)))
 parts.append(u'</section>')
 
 # ---- Klima ----
