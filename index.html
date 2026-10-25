@@ -1175,7 +1175,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div class="budget-card">
           <p style="opacity:.7;font-size:.86rem;margin-bottom:.8rem">Trage beim Buchen eure echten Preise ein — Summe & Diagramm rechnen sich live. Werte für 2 Personen.</p>
           <div class="brow"><i class="bdot" style="background:#e8794a"></i><label>✈️ Flüge (Langstrecke + Inland)</label><input type="number" data-cost data-cat="Flüge" value="2660"></div>
-          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (~27 Nächte + 1 Zugnacht)</label><input type="number" data-cost data-cat="Hotels" value="2300"></div>
+          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (20 von 27 Nächten gebucht: CHF 2'480)</label><input type="number" data-cost data-cat="Hotels" value="3700"></div>
           <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport</label><input type="number" data-cost data-cat="Transport" value="345"></div>
           <div class="brow"><i class="bdot" style="background:#14a098"></i><label>🎟️ Aktivitäten & Touren</label><input type="number" data-cost data-cat="Aktivitäten" value="470"></div>
           <div class="brow"><i class="bdot" style="background:#f2a07a"></i><label>🍜 Essen & Trinken</label><input type="number" data-cost data-cat="Essen" value="1500"></div>
@@ -1250,20 +1250,20 @@ svg.leaflet-image-layer.leaflet-interactive path {
 const stops = [
   {emoji:'✈️',days:'Tag 1–2 · 03.–04.01.',name:'Anreise nach Phuket',transport:true,loc:[8.1053,98.3054],
    tline:'Edelweiss WK50 Direktflug · Zürich → Phuket · Nachtflug, ~11,5 Std · Ankunft am 04.01.',tlink:'https://www.flyedelweiss.com/'},
-  {emoji:'🏖️',days:'Tag 2–5 · 04.–07.01.',name:'Phuket — Patong',loc:[7.8925,98.2986],beach:true,scene:'beach',
-   note:'3 Nächte im ibis Styles Phuket Patong — Ankunft am 04.01. nach dem Nachtflug, Check-out am 7. Januar, abends geht der Flug nach Chiang Mai',
+  {emoji:'🏖️',days:'Tag 2–5 · 04.–07.01.',name:'Phuket — Bang Tao',loc:[7.9930,98.2930],beach:true,scene:'beach',
+   note:'3 Nächte im ibis Styles Phuket Bangtao, gebucht (22\'258 THB ≈ CHF 544). Ankunft am 04.01. nach dem Nachtflug, Check-out am 7. Januar, abends der Flug nach Chiang Mai. Bang Tao liegt im Nordwesten — nur ~25 Min zum Flughafen',
    hotels:[
-     {n:'ibis Styles Phuket Patong · gebucht',r:'4.2',q:'ibis Styles Phuket Patong',ll:[7.8925,98.2986]}],
+     {n:'ibis Styles Phuket Bangtao · GEBUCHT, 22\'258 THB ≈ CHF 544',q:'ibis Styles Phuket Bangtao',ll:[7.9930,98.2930]}],
    acts:[
-     {t:'Patong Beach — schwimmen, akklimatisieren',q:'Patong Beach Phuket',ll:[7.8926,98.2960]},
-     {t:'Big Buddha & Karon Viewpoint — Halbtagesausflug',q:'Big Buddha Phuket',ll:[7.8277,98.3125]},
-     {t:'Sonnenuntergang am Promthep Cape',q:'Promthep Cape Phuket',ll:[7.7620,98.3050]}],
+     {t:'Bang Tao Beach — 6 km langer Sandstrand, ruhig, direkt vor der Tür',q:'Bang Tao Beach Phuket',ll:[7.9930,98.2920]},
+     {t:'Layan & Surin Beach — ruhigere Nachbarbuchten, 10–15 Min',q:'Surin Beach Phuket',ll:[7.9770,98.2780]},
+     {t:'Boat Avenue & Porto de Phuket — Restaurants, Freitagsmarkt',q:'Boat Avenue Cherngtalay Phuket',ll:[8.0080,98.2990]},
+     {t:'Big Buddha — Halbtagesausflug in den Süden (~45 Min)',q:'Big Buddha Phuket',ll:[7.8277,98.3125]}],
    tline:'Flug Phuket → Chiang Mai · 07.01. ab 18:15 Uhr · ~1h55 (Ankunft ~20:10)',tlink:'https://www.skyscanner.ch/'},
   {emoji:'🛕',days:'Tag 5–10 · 07.–12.01.',name:'Chiang Mai — Altstadt',loc:[18.7885,98.9820],scene:'temple',
    note:'5 Nächte · Ankunft am 7. Januar spätabends, Abreise am 12. Januar mit dem Nachtzug',
    hotels:[
-     {n:'The Chiang Mai Old Town Hotel',r:'4.7',pid:'ChIJB4ZtP4M62jARzWkW-KBbcsk',q:'The Chiang Mai Old Town Hotel',ll:[18.7859,98.9787]},
-     {n:'At Chiang Mai',r:'4.4',pid:'ChIJpzyWQ5g62jARSYhronU6dJU',q:'At Chiang Mai SHA Extra Plus',ll:[18.7907,98.9892]}],
+     {n:'Pastell Oldtown Chiang Mai · GEBUCHT — CHF 380.30 für 5 Nächte (~CHF 76/N)',q:'Pastell Oldtown Chiang Mai',ll:[18.7870,98.9870]}],
    acts:[
      {t:'Wat Phra Singh — schönster Tempel der Altstadt (früh morgens)',q:'Wat Phra Singh Chiang Mai',ll:[18.7885,98.9820]},
      {t:'Ethical Elephant Sanctuary by Big Boy (4.9) — kein Reiten, Wasserfall, Pad-Thai',q:'Ethical elephant sanctuary chiangmai Big Boy',ll:[18.9180,98.9928]},
@@ -1282,12 +1282,9 @@ const stops = [
      {t:'Tempel per Fahrrad oder Tuk-Tuk erkunden',q:'Ayutthaya Historical Park',ll:[14.3551,100.5650]}],
    tline:'Zug Ayutthaya → Bangkok · alle ~30 Min · ~1h10',tlink:'https://www.thailandtrains.com/'},
   {emoji:'🏙️',days:'Tag 11–15 · 13.–17.01.',name:'Bangkok',loc:[13.7499,100.4916],scene:'city',
-   note:'4 Nächte in Chinatown · Samstag 16.01. ist Chatuchak-Tag (der Markt öffnet nur Sa/So). MRT Wat Mangkon liegt an der Blue Line — vom Zug ab Bang Sue ohne Umsteigen, und eine Station zum Wat Pho',
+   note:'4 Nächte im Arte Hotel an der Sukhumvit Soi 19, gebucht. 300 m zum Umsteigeknoten Asok/Sukhumvit — die MRT Blue Line fährt als Ring ohne Umsteigen zum Wat Pho, nach Chinatown, nach Chatuchak und zur Zugankunft Bang Sue. Samstag 16.01. ist Chatuchak-Tag',
    hotels:[
-     {n:'Shanghai Mansion Bangkok — Boutique von 1930 an der Yaowarat Rd',r:'4.4',q:'Shanghai Mansion Bangkok Chinatown',ll:[13.7396,100.5103]},
-     {n:'Hotel Royal Bangkok @ Chinatown — Pool, direkt an der Yaowarat Rd',r:'4.3',pid:'ChIJNeaGgiGZ4jARti015OlJo2A',q:'Hotel Royal Bangkok Chinatown',ll:[13.7405,100.5099]},
-     {n:'ASAI Bangkok Chinatown — modern, gut bewertet',r:'4.5',q:'ASAI Bangkok Chinatown',ll:[13.7422,100.5136]},
-     {n:'Sala Rattanakosin — Alternative am Fluss, 400 m zum Wat Pho',r:'4.4',q:'Sala Rattanakosin Bangkok',ll:[13.7430,100.4919]}],
+     {n:'Arte Hotel Bangkok · GEBUCHT — CHF 179.04 für 4 Nächte (~CHF 45/N), Sukhumvit Soi 19',q:'Arte Hotel Bangkok Sukhumvit 19',ll:[13.7401,100.5595]}],
    acts:[
      {t:'Grand Palace + Wat Pho (liegender Buddha) — früh hin',q:'Grand Palace Bangkok',ll:[13.7499,100.4916]},
      {t:'Wat Arun bei Sonnenuntergang vom Viewing Point gegenüber',q:'Wat Arun Bangkok',ll:[13.7437,100.4889]},
@@ -1300,11 +1297,9 @@ const stops = [
      {t:'Talad Rot Fai Ratchada — Nachtmarkt mit Streetfood',q:'Talad Rot Fai Ratchada night market',ll:[13.7668,100.5395]}],
    tline:'Flug Bangkok (BKK) → Krabi · 17.01. morgens · ~1h20 · zum Flughafen: Grab 40–60 Min (400–500 THB) oder MRT + Airport Rail Link ~60 Min',tlink:'https://www.skyscanner.ch/'},
   {emoji:'⛵',days:'Tag 15–18 · 17.–20.01.',name:'Krabi Town',loc:[8.0863,98.9063],scene:'city',
-   note:'3 Nächte (17.–20.01.) im Sita Krabi Hotel, gesetzt. Es liegt an der Hutangkoun Rd am Stadtrand — zum Nachtmarkt am Fluss sind es ~2 km, also Songthaew oder ~25 Min zu Fuss. Kein Strandort: nach Ao Nang sind es ~30 Min mit dem Songthaew, dorthin fahrt ihr für Railay und die Bootstouren',
+   note:'3 Nächte (17.–20.01.) im The Brown Hotel, gebucht — Maharaj 10 Rd, zwei Minuten zum Nachtmarkt. Kein Lift, unteres Stockwerk verlangen. Kein Strandort: nach Ao Nang sind es ~30 Min mit dem Songthaew, dorthin fahrt ihr für Railay und die Bootstouren',
    hotels:[
-     {n:'Sita Krabi Hotel · GESETZT — 4.6 (309) / 9.0 (519), ~CHF 27, Hutangkoun Rd',r:'4.6',q:'Sita Krabi Hotel Hutangkoun Pak Nam Krabi',ll:[8.0730,98.9000]},
-     {n:'The Brown Hotel — 2 Min zum Nachtmarkt, kein Lift · 4.0 (38) / 8.6 (60)',q:'The Brown Hotel Krabi Town',ll:[8.0640,98.9180]},
-     {n:'Family Tree Hotel · 4.7 (117) / 9.2 (719)',r:'4.7',q:'Family Tree Hotel Krabi Town',ll:[8.0680,98.9170]}],
+     {n:'The Brown Hotel Krabi · GEBUCHT — CHF 122.25 für 3 Nächte, 9.2 (758 Agoda), Maharaj 10 Rd',r:'4.6',q:'The Brown Hotel Krabi Town Maharaj',ll:[8.0640,98.9180]}],
    acts:[
      {t:'Nachtmarkt am Chao Fah Pier — Garküchen am Fluss, jeden Abend',q:'Chao Fah Pier Night Market Krabi',ll:[8.0620,98.9170]},
      {t:'Khao Khanab Nam — Longtail zu den Zwillingsfelsen an der Flussmündung, flacher Weg',q:'Khao Khanab Nam Krabi',ll:[8.0870,98.9050]},
@@ -1316,7 +1311,7 @@ const stops = [
   {emoji:'🌴',days:'Tag 18–23 · 20.–25.01.',name:'Koh Lanta — Klong Dao',loc:[7.618,99.032],beach:true,scene:'island',
    note:'5 Nächte im Jai Tiki Retreat am Klong Dao, gebucht. Nur Phra Ae (Long Beach) und Klong Dao sind zu jeder Tide schwimmbar — und eure Tage fallen auf den Supermond-Vollmond vom 22.01., also den grössten Tidenhub des Monats — am Klong Dao ist das egal. Kilometerlang und flach, Strandrestaurants und -bars entlang der Küste, Sonnenuntergang übers Meer, keine Partyszene',
    hotels:[
-     {n:'Jai Tiki Retreat · GEBUCHT — Adults Only, Klong Dao, Infinity-Pool · 4.9 (186)',r:'4.9',q:'Jai Tiki Retreat Adult Only Koh Lanta',ll:[7.6400,99.0390]},
+     {n:'Jai Tiki Retreat · GEBUCHT — 51\'360 THB ≈ CHF 1\'255 für 5 Nächte, Adults Only, Klong Dao · 4.9 (186)',r:'4.9',q:'Jai Tiki Retreat Adult Only Koh Lanta',ll:[7.6400,99.0390]},
      {n:'Lanta Pearl Beach Resort — 200 m zum Phra Ae, Pool, Sauberkeit 9.2 · 4.5 (709)',r:'4.5',q:'Lanta Pearl Beach Resort Koh Lanta',ll:[7.6200,99.0320]},
      {n:'Lanta Castaway Beach Resort — direkt am Phra Ae, kein Pool, viele Mücken · 4.7 (880)',r:'4.7',q:'Lanta Castaway Beach Resort Koh Lanta',ll:[7.6180,99.0310]},
      {n:'Lanta Smile Inn — 5–7 Min zum Strand, sehr gut bewertet · 9.3/10',q:'Lanta Smile Inn Koh Lanta',ll:[7.6260,99.0350]},
@@ -1475,9 +1470,9 @@ const store={
 // ===== Tag-für-Tag-Pläne pro Etappe (key = loc) =====
 const plans={
   '7.8925,98.2986|patong':[['Tag 1 · 03.01.','Abends Abflug in Zürich — Nachtflug']
-    ,['Tag 2 · 04.01.','Ankunft in Phuket, ibis Styles beziehen, Füsse in den Sand']
-    ,['Tag 3 · 05.01.','Patong Beach, akklimatisieren']
-    ,['Tag 4 · 06.01.','Big Buddha, Karon Viewpoint, Promthep Cape zum Sonnenuntergang']
+    ,['Tag 2 · 04.01.','Ankunft in Phuket (~25 Min zum Hotel), ibis Styles beziehen, Füsse in den Sand']
+    ,['Tag 3 · 05.01.','Bang Tao Beach, akklimatisieren, abends Boat Avenue']
+    ,['Tag 4 · 06.01.','Big Buddha im Süden oder Surin & Layan Beach']
     ,['Tag 5 · 07.01.','Check-out, Strandvormittag — 18:15 Uhr Flug nach Chiang Mai']],
   '18.7885,98.982':[['Tag 5 · 07.01.','Späte Ankunft (~20:10), einchecken']
     ,['Tag 6 · 08.01.','Altstadt-Tempel zu Fuss, Wat Phra Singh']
@@ -1939,9 +1934,9 @@ toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 // ===== Währungsumrechner (Richtkurs Jan 2026) =====
 (function(){
-  const RATE=40.5; // 1 CHF ≈ 40.5 THB (Richtwert)
+  const RATE=40.9; // 1 CHF ≈ 40.9 THB (EZB, 23.10.2026)
   const chf=document.getElementById('fxChf'), thb=document.getElementById('fxThb'), note=document.getElementById('fxRate');
-  note.textContent='Richtkurs: 1 CHF ≈ '+RATE+' THB · aktuellen Kurs vor Reise prüfen';
+  note.textContent='Kurs 23.10.2026: 1 CHF ≈ '+RATE+' THB · vor Reise erneut prüfen';
   function fromChf(){thb.value=Math.round((Number(chf.value)||0)*RATE);}
   function fromThb(){chf.value=Math.round((Number(thb.value)||0)/RATE*100)/100;}
   chf.addEventListener('input',fromChf);
