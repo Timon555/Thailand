@@ -1174,9 +1174,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="budget-grid">
         <div class="budget-card">
           <p style="opacity:.7;font-size:.86rem;margin-bottom:.8rem">Trage beim Buchen eure echten Preise ein — Summe & Diagramm rechnen sich live. Werte für 2 Personen.</p>
-          <div class="brow"><i class="bdot" style="background:#e8794a"></i><label>✈️ Flüge (Langstrecke + Inland)</label><input type="number" data-cost data-cat="Flüge" value="2660"></div>
+          <div class="brow"><i class="bdot" style="background:#e8794a"></i><label>✈️ Flüge (ZRH 2'400 + Krabi 150, Chiang Mai offen)</label><input type="number" data-cost data-cat="Flüge" value="2550"></div>
           <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (20 von 27 Nächten gebucht: CHF 2'251)</label><input type="number" data-cost data-cat="Hotels" value="3450"></div>
-          <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport</label><input type="number" data-cost data-cat="Transport" value="345"></div>
+          <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport (Nachtzug 120 + Fähren)</label><input type="number" data-cost data-cat="Transport" value="345"></div>
           <div class="brow"><i class="bdot" style="background:#14a098"></i><label>🎟️ Aktivitäten & Touren</label><input type="number" data-cost data-cat="Aktivitäten" value="470"></div>
           <div class="brow"><i class="bdot" style="background:#f2a07a"></i><label>🍜 Essen & Trinken</label><input type="number" data-cost data-cat="Essen" value="1500"></div>
           <div class="brow"><i class="bdot" style="background:#9ec5c3"></i><label>🎒 Puffer / Sonstiges</label><input type="number" data-cost data-cat="Puffer" value="665"></div>
@@ -1249,7 +1249,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 <script>
 const stops = [
   {emoji:'✈️',days:'Tag 1–2 · 03.–04.01.',name:'Anreise nach Phuket',transport:true,loc:[8.1053,98.3054],
-   tline:'Edelweiss WK50 Direktflug · Zürich → Phuket · Nachtflug, ~11,5 Std · Ankunft am 04.01.',tlink:'https://www.flyedelweiss.com/'},
+   tline:'Edelweiss WK50 Direktflug · Zürich → Phuket · Nachtflug, ~11,5 Std · Ankunft am 04.01. · CHF 2\'400 für beide, hin und zurück',tlink:'https://www.flyedelweiss.com/'},
   {emoji:'🏖️',days:'Tag 2–5 · 04.–07.01.',name:'Phuket — Bang Tao',loc:[7.9930,98.2930],beach:true,scene:'beach',
    note:'3 Nächte im ibis Styles Phuket Bangtao, gebucht (22\'258 THB ≈ CHF 544). Ankunft am 04.01. nach dem Nachtflug, Check-out am 7. Januar, abends der Flug nach Chiang Mai. Bang Tao liegt im Nordwesten — nur ~25 Min zum Flughafen',
    hotels:[
@@ -1273,7 +1273,7 @@ const stops = [
      {t:'Thai-Kochkurs mit Marktbesuch',q:'Thai cooking class Chiang Mai',ll:[18.7880,98.9930]},
      {t:'Tagesausflug Doi Inthanon — höchster Berg Thailands, Aussicht und Wasserfälle direkt an der Strasse',q:'Doi Inthanon National Park',ll:[18.5885,98.4867]},
      {t:'Old City & Nachtmarkt — schlendern, Streetfood',q:'Chiang Mai old city night market',ll:[18.7870,98.9935]}],
-   tline:'Nachtzug #9 · Chiang Mai → Ayutthaya · 12.01. ab ~18:00 · ~12 Std, Ankunft früh am 13.01.',tlink:'https://12go.asia/'},
+   tline:'Nachtzug #9 · Chiang Mai → Ayutthaya · 12.01. ab ~18:00 · ~12 Std, Ankunft früh am 13.01. · CHF 120',tlink:'https://12go.asia/'},
   {emoji:'🏯',days:'Tag 11 · 13.01. Vormittag',name:'Ayutthaya',loc:[14.3569,100.5675],scene:'ruins',
    note:'Tagesstopp nach der Zugnacht — Gepäck am Bahnhof einschliessen (Schliessfach)',
    acts:[
@@ -1295,7 +1295,7 @@ const stops = [
      {t:'Khlong-Bootstour durch Thonburi — alte Kanäle, Stelzenhäuser',q:'Khlong Bangkok Noi boat tour',ll:[13.7600,100.4800]},
      {t:'Bang Krachao — »grüne Lunge«, flache Stege, Velo mieten',q:'Bang Krachao Bangkok',ll:[13.6880,100.5560]},
      {t:'Talad Rot Fai Ratchada — Nachtmarkt mit Streetfood',q:'Talad Rot Fai Ratchada night market',ll:[13.7668,100.5395]}],
-   tline:'Flug Bangkok (BKK) → Krabi · 17.01. morgens · ~1h20 · zum Flughafen: Grab 40–60 Min (400–500 THB) oder MRT + Airport Rail Link ~60 Min',tlink:'https://www.skyscanner.ch/'},
+   tline:'Flug Bangkok (BKK) → Krabi · 17.01. morgens · ~1h20 · CHF 150 · zum Flughafen: Grab 40–60 Min (400–500 THB) oder MRT + Airport Rail Link ~60 Min',tlink:'https://www.skyscanner.ch/'},
   {emoji:'⛵',days:'Tag 15–18 · 17.–20.01.',name:'Krabi Town',loc:[8.0863,98.9063],scene:'city',
    note:'3 Nächte (17.–20.01.) im The Brown Hotel, gebucht — Maharaj 10 Rd, zwei Minuten zum Nachtmarkt. Kein Lift, unteres Stockwerk verlangen. Kein Strandort: nach Ao Nang sind es ~30 Min mit dem Songthaew, dorthin fahrt ihr für Railay und die Bootstouren',
    hotels:[
@@ -1338,7 +1338,7 @@ const stops = [
      {t:'Thai-Kochkurs, Massage, Seafood am Strand',q:'Thai cooking class Phuket',ll:[7.8205,98.2966]}],
    tline:'Flug Phuket → Zürich · Edelweiss WK51 · Tag 30 / 01.02.',tlink:'https://www.flyedelweiss.com/'},
   {emoji:'🏠',days:'Tag 30 · 01.02.',name:'Heimreise nach Zürich',transport:true,
-   tline:'Edelweiss WK51 Direktflug · Phuket → Zürich · ~11,5 Std',tlink:'https://www.flyedelweiss.com/'},
+   tline:'Edelweiss WK51 Direktflug · Phuket → Zürich · ~11,5 Std · im Hinflugpreis enthalten',tlink:'https://www.flyedelweiss.com/'},
 ];
 
 const climate = [
