@@ -1175,7 +1175,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
         <div class="budget-card">
           <p style="opacity:.7;font-size:.86rem;margin-bottom:.8rem">Trage beim Buchen eure echten Preise ein — Summe & Diagramm rechnen sich live. Werte für 2 Personen.</p>
           <div class="brow"><i class="bdot" style="background:#e8794a"></i><label>✈️ Flüge (ZRH 2'400 + Chiang Mai 250 + Krabi 150 — alle gebucht)</label><input type="number" data-cost data-cat="Flüge" value="2800"></div>
-          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (20 von 27 Nächten gebucht: CHF 2'251)</label><input type="number" data-cost data-cat="Hotels" value="3450"></div>
+          <div class="brow"><i class="bdot" style="background:#0d7377"></i><label>🏨 Hotels (CHF 2'251 gebucht + 7 Nächte Kata/Karon à max. 100)</label><input type="number" data-cost data-cat="Hotels" value="2950"></div>
           <div class="brow"><i class="bdot" style="background:#e8b04a"></i><label>🚂 Inland-Transport (Nachtzug 120 gebucht · Fähren offen)</label><input type="number" data-cost data-cat="Transport" value="345"></div>
           <div class="brow"><i class="bdot" style="background:#14a098"></i><label>🎟️ Aktivitäten & Touren</label><input type="number" data-cost data-cat="Aktivitäten" value="470"></div>
           <div class="brow"><i class="bdot" style="background:#f2a07a"></i><label>🍜 Essen & Trinken</label><input type="number" data-cost data-cat="Essen" value="1500"></div>
@@ -1321,12 +1321,13 @@ const stops = [
      {t:'Mit dem Roller die flache Insel erkunden, Strandbars am Abend',q:'Koh Lanta beach bar',ll:[7.6100,99.0300]}],
    tline:'Fähre Koh Lanta (Saladan) → Phuket · 25.01. · erste Abfahrt ~08:00, Pier 5–10 Min vom Hotel · ~900–1\'200 THB p.P., meist über Phi Phi · noch zu buchen',tlink:'https://www.phuketferry.com/route-koh-lanta-phuket.html'},
   {emoji:'🌅',days:'Tag 23–30 · 25.01.–01.02.',name:'Phuket — Kata & Karon',loc:[7.8158,98.3004],beach:true,scene:'sunset',
-   note:'7 Nächte im Strandresort — einmal auspacken, dann nur noch geniessen. Beim Buchen auf Hanglage achten: mehrere Häuser hier liegen am Berg und fahren den Shuttle nur bis 19 Uhr. Breiter Sandstrand, zu jeder Tide schwimmbar, ~45 Min zum Flughafen. Altstadt, Phang-Nga-Bucht und Koh Racha macht ihr von hier als Tagesausflüge',
+   note:'7 Nächte im Strandresort, Budget max. CHF 100/Nacht (≈ 4\'100 THB) — dafür gibt es in der Hochsaison solide 3-Sterne-Häuser mit Pool 5–10 Min vom Strand, aber nichts direkt am Sand. Karon ist flacher und etwas günstiger als Kata: dort auf Hanglage achten, mehrere günstige Häuser liegen am Berg und fahren den Shuttle nur bis 19 Uhr. Breiter Sandstrand, zu jeder Tide schwimmbar, ~45 Min zum Flughafen. Altstadt, Phang-Nga-Bucht und Koh Racha macht ihr von hier als Tagesausflüge',
    hotels:[
-     {n:'Centara Kata Resort',r:'4.5',pid:'ChIJAx6Qk48lUDARQ_i_Dbhs3wQ',q:'Centara Kata Resort Phuket',ll:[7.8218,98.3001]},
-     {n:'Avista Grande Karon — MGallery · 4.8 (3\'200), 3 Min flach zum Strand',r:'4.8',q:'Avista Grande Phuket Karon MGallery',ll:[7.8460,98.2970]},
-     {n:'Katathani Phuket Beach Resort — gross, direkt am Kata Noi',r:'4.5',q:'Katathani Phuket Beach Resort',ll:[7.8100,98.2970]},
-     {n:'The Shore at Katathani — gehoben, Poolvillen',r:'4.7',q:'The Shore at Katathani Phuket',ll:[7.8080,98.2975]}],
+     {n:'Kata Poolside Resort · 8.4 (823) — flach an der Kata Road, Pool, ~5 Min zum Strand · ~CHF 60–80',r:'4.2',q:'Kata Poolside Resort Phuket',ll:[7.8190,98.2990]},
+     {n:'KK Karon Kata Boutique Hotel · 8.8 (117) — Dachpool, zwischen Kata und Karon · ~CHF 60–90',r:'4.4',q:'KK Karon Kata Boutique Hotel',ll:[7.8290,98.2970]},
+     {n:'Kata Palm Resort — zwei grosse Pools, 5 Min flach zum Strand · ~CHF 80–110',r:'4.1',q:'Kata Palm Resort Phuket',ll:[7.8205,98.2985]},
+     {n:'Phuket Emerald Beach Resort · 4.7 (2\'500) — Karon, Frühstück inkl., Strandzugang · ~CHF 100–140, grenzwertig',r:'4.7',q:'Phuket Emerald Beach Resort Karon',ll:[7.8480,98.2960]},
+     {n:'Nicht buchen: Peach Hill, Sugar Palm Grand Hillside — günstig, aber am Steilhang',r:'4.0',q:'Peach Hill Hotel Resort Kata Phuket',ll:[7.8130,98.3060]}],
    acts:[
      {t:'Kata & Kata Noi Beach — baden, Sonnenuntergang vom Strand',q:'Kata Noi Beach Phuket',ll:[7.8120,98.2980]},
      {t:'Bootstour Phang Nga Bay / James Bond Island — Kanufahren in den Höhlen',q:'James Bond Island Phang Nga Bay tour',ll:[8.2742,98.5050]},
